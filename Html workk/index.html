@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Space Rocket Music</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="space-rocket-loading">
+      <div class="rocket-container">
+        <div class="stars" id="stars"></div>
+        <div class="rocket">
+          <div class="rocket-window"></div>
+          <div class="rocket-fin left"></div>
+          <div class="rocket-fin right"></div>
+          <div class="rocket-fire"></div>
+        </div>
+      </div>
+      <div class="loading-text">Space Rocket Music</div>
+      <div class="loading-subtext">Launching your music experience...</div>
+      <div class="loading-bar-container">
+        <div class="loading-bar" id="rocket-loading-bar"></div>
+      </div>
+      <div class="loading-percentage" id="loading-percentage">0%</div>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <button class="mobile-nav-toggle" id="mobileNavToggle">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <div class="mobile-nav-container" id="mobileNavContainer">
+      <ul class="mobile-nav-menu">
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Home</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">New Songs</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Artists</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">Frequently searched</a>
+        </li>
+        <li class="mobile-nav-item">
+          <a href="#" class="mobile-nav-link">FAQ</a>
+        </li>
+      </ul>
+
+      <div class="mobile-nav-actions">
+        <button class="btn btn-login">Log In</button>
+        <button class="btn btn-signup">Sign Up</button>
+      </div>
+    </div>
+
+    <div class="container">
+      <header>
+        <div class="logo">
+          <div class="logo-icon">
+            <i class=""> <img src="img/space.ico" alt="Chill Mix" /></i>
+          </div>
+          <div class="logo-text">Space Rocket</div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">New Songs</a></li>
+            <li><a href="#">Artists</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li class="nav-dropdown">
+              <a href="#">Frequently searched</a>
+              <div class="dropdown-content">
+                <a href="#">Top Charts</a>
+                <a href="#">New Releases</a>
+                <a href="#">Popular Playlists</a>
+                <a href="#">Trending Artists</a>
+                <a href="#">Music Genres</a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="logging">
+          <button class="btn btn-login">Log In</button>
+          <button class="btn btn-signup">Sign Up</button>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-content">
+          <h1 class="hero-title">Your Music, Your Way</h1>
+          <p class="hero-subtitle">
+            Stream over 80 million songs, discover new artists, and create
+            personalized playlists. All the music you love, all in one place.
+          </p>
+          <button class="btn btn-signup">Start Listening Now</button>
+        </div>
+        <div class="hero-image">
+          <img src="img/chris.avif" alt="Music Listening" />
+        </div>
+      </section>
+
+      <section class="now-playing">
+        <h2 class="section-title">Now Playing</h2>
+        <div class="player">
+          <div class="album-art">
+            <img src="img/scratch.avif" alt="Album Art" />
+          </div>
+
+          <div class="track-info">
+            <h3 class="track-title">Blinding Lights</h3>
+            <p class="track-artist">The Weeknd</p>
+
+            <div class="progress-container">
+              <div class="progress-info">
+                <span class="current-time">2:15</span>
+                <span class="total-time">3:45</span>
+              </div>
+              <div class="progress-bar" id="song-progress">
+                <div class="progress-fill" id="song-progress-fill"></div>
+              </div>
+            </div>
+
+            <div class="player-controls">
+              <button class="control-btn" id="shuffle-btn">
+                <i class="fas fa-random"></i>
+              </button>
+              <button class="control-btn" id="prev-btn">
+                <i class="fas fa-step-backward"></i>
+              </button>
+              <button class="control-btn play-btn" id="play-btn">
+                <i class="fas fa-play" id="play-icon"></i>
+              </button>
+              <button class="control-btn" id="next-btn">
+                <i class="fas fa-step-forward"></i>
+              </button>
+              <button class="control-btn" id="repeat-btn">
+                <i class="fas fa-redo"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="playlists">
+        <h2 class="section-title">Made For You</h2>
+        <div class="playlist-grid">
+          <div class="playlist-card">
+            <div class="playlist-image">
+              <img src="img/space.ico" alt="Chill Mix" />
+            </div>
+            <div class="playlist-info">
+              <h3 class="playlist-name">Chill Vibes</h3>
+              <p class="playlist-count">20 songs</p>
+            </div>
+          </div>
+
+          <div class="playlist-card">
+            <div class="playlist-image">
+              <img src="img/work.avif" alt="Workout Mix" />
+            </div>
+            <div class="playlist-info">
+              <h3 class="playlist-name">Workout Energy</h3>
+              <p class="playlist-count">14 songs</p>
+            </div>
+          </div>
+
+          <div class="playlist-card">
+            <div class="playlist-image">
+              <img src="img/guiter.avif" alt="Focus Mix" />
+            </div>
+            <div class="playlist-info">
+              <h3 class="playlist-name">Focus Flow</h3>
+              <p class="playlist-count">28 songs</p>
+            </div>
+          </div>
+
+          <div class="playlist-card">
+            <div class="playlist-image">
+              <img src="img/party.avif" alt="Party Mix" />
+            </div>
+            <div class="playlist-info">
+              <h3 class="playlist-name">Party Starters</h3>
+              <p class="playlist-count">50 songs</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="recently-played">
+        <h2 class="section-title">Recently Played</h2>
+        <div class="track-list">
+          <div class="track-item">
+            <div class="track-number">1</div>
+            <div class="track-details">
+              <div class="track-name">As It Was</div>
+              <div class="track-artist">Harry Styles</div>
+            </div>
+            <div class="track-duration">2:47</div>
+            <div class="track-actions">
+              <button class="action-btn"><i class="far fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="track-item">
+            <div class="track-number">2</div>
+            <div class="track-details">
+              <div class="track-name">Flowers</div>
+              <div class="track-artist">Miley Cyrus</div>
+            </div>
+            <div class="track-duration">3:20</div>
+            <div class="track-actions">
+              <button class="action-btn"><i class="far fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="track-item">
+            <div class="track-number">3</div>
+            <div class="track-details">
+              <div class="track-name">Kill Bill</div>
+              <div class="track-artist">SZA</div>
+            </div>
+            <div class="track-duration">2:33</div>
+            <div class="track-actions">
+              <button class="action-btn">
+                <i class="fas fa-heart" style="color: #ff6b6b"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="track-item">
+            <div class="track-number">4</div>
+            <div class="track-details">
+              <div class="track-name">Creepin'</div>
+              <div class="track-artist">
+                Metro Boomin, The Weeknd, 21 Savage
+              </div>
+            </div>
+            <div class="track-duration">3:41</div>
+            <div class="track-actions">
+              <button class="action-btn"><i class="far fa-heart"></i></button>
+            </div>
+          </div>
+
+          <div class="track-item">
+            <div class="track-number">5</div>
+            <div class="track-details">
+              <div class="track-name">Anti-Hero</div>
+              <div class="track-artist">Taylor Swift</div>
+            </div>
+            <div class="track-duration">3:20</div>
+            <div class="track-actions">
+              <button class="action-btn">
+                <i class="fas fa-heart" style="color: #ff6b6b"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div class="footer-links">
+          <a href="#">About</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="contact.html">Contact</a>
+          <a href="#">Help Center</a>
+        </div>
+        <p>&copy; 2025 Space Rocket Music. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        function createStars() {
+          const starsContainer = $("#stars");
+          for (let i = 0; i < 50; i++) {
+            const star = $('<div class="star"></div>');
+            const size = Math.random() * 3 + 1;
+            const left = Math.random() * 100;
+            const top = Math.random() * 100;
+            const delay = Math.random() * 3;
+
+            star.css({
+              width: size + "px",
+              height: size + "px",
+              left: left + "%",
+              top: top + "%",
+              animationDelay: delay + "s",
+            });
+
+            starsContainer.append(star);
+          }
+        }
+
+        function startRocketLoading() {
+          const loadingBar = $("#rocket-loading-bar");
+          const percentage = $("#loading-percentage");
+          const rocketLoading = $("#space-rocket-loading");
+
+          let progress = 0;
+
+          const loadInterval = setInterval(function () {
+            progress += Math.random() * 10;
+            if (progress >= 100) {
+              progress = 100;
+              clearInterval(loadInterval);
+
+              setTimeout(function () {
+                rocketLoading.animate(
+                  {
+                    opacity: 0,
+                  },
+                  1000,
+                  function () {
+                    $(this).hide();
+                  }
+                );
+              }, 500);
+            }
+
+            loadingBar.css("width", progress + "%");
+            percentage.text(Math.round(progress) + "%");
+          }, 200);
+        }
+
+        createStars();
+        startRocketLoading();
+
+        const mobileNavToggle = $("#mobileNavToggle");
+        const mobileNavContainer = $("#mobileNavContainer");
+
+        mobileNavToggle.click(function () {
+          mobileNavContainer.toggleClass("show");
+          $(this).find("i").toggleClass("fa-bars fa-times");
+        });
+
+        $(document).click(function (e) {
+          if (
+            !$(e.target).closest(".mobile-nav-container, .mobile-nav-toggle")
+              .length
+          ) {
+            if (mobileNavContainer.hasClass("show")) {
+              mobileNavContainer.removeClass("show");
+              mobileNavToggle
+                .find("i")
+                .removeClass("fa-times")
+                .addClass("fa-bars");
+            }
+          }
+        });
+
+        let isPlaying = false;
+        let progressInterval;
+        let currentProgress = 35;
+        let isShuffled = false;
+        let isRepeating = false;
+
+        function updateProgressBar() {
+          $("#song-progress-fill").css("width", currentProgress + "%");
+
+          const totalSeconds = 225;
+          const currentSeconds = Math.floor(
+            (currentProgress / 100) * totalSeconds
+          );
+
+          const currentMinutes = Math.floor(currentSeconds / 60);
+          const currentSecs = currentSeconds % 60;
+
+          const totalMinutes = Math.floor(totalSeconds / 60);
+          const totalSecs = totalSeconds % 60;
+
+          $(".current-time").text(
+            `${currentMinutes}:${currentSecs < 10 ? "0" : ""}${currentSecs}`
+          );
+
+          $(".total-time").text(
+            `${totalMinutes}:${totalSecs < 10 ? "0" : ""}${totalSecs}`
+          );
+        }
+
+        function togglePlayPause() {
+          isPlaying = !isPlaying;
+
+          if (isPlaying) {
+            $("#play-icon").removeClass("fa-play").addClass("fa-pause");
+
+            progressInterval = setInterval(function () {
+              if (currentProgress < 100) {
+                currentProgress += 0.5;
+                updateProgressBar();
+              } else {
+                clearInterval(progressInterval);
+                isPlaying = false;
+                $("#play-icon").removeClass("fa-pause").addClass("fa-play");
+                // Reset progress when song ends
+                currentProgress = 0;
+                updateProgressBar();
+              }
+            }, 1000);
+          } else {
+            $("#play-icon").removeClass("fa-pause").addClass("fa-play");
+            clearInterval(progressInterval);
+          }
+        }
+
+        function resetSong() {
+          currentProgress = 0;
+          updateProgressBar();
+          if (isPlaying) {
+            clearInterval(progressInterval);
+            progressInterval = setInterval(function () {
+              if (currentProgress < 100) {
+                currentProgress += 0.5;
+                updateProgressBar();
+              } else {
+                clearInterval(progressInterval);
+                isPlaying = false;
+                $("#play-icon").removeClass("fa-pause").addClass("fa-play");
+              }
+            }, 1000);
+          }
+        }
+
+        function nextSong() {
+          resetSong();
+        }
+
+        function prevSong() {
+          resetSong();
+        }
+
+        updateProgressBar();
+
+        $("#play-btn").click(togglePlayPause);
+
+        $("#shuffle-btn").click(function () {
+          isShuffled = !isShuffled;
+          $(this).toggleClass("active", isShuffled);
+          if (isShuffled) {
+            $(this).css("color", "#ff6b6b");
+          } else {
+            $(this).css("color", "white");
+          }
+        });
+
+        $("#repeat-btn").click(function () {
+          isRepeating = !isRepeating;
+          $(this).toggleClass("active", isRepeating);
+          if (isRepeating) {
+            $(this).css("color", "#ff6b6b");
+          } else {
+            $(this).css("color", "white");
+          }
+        });
+
+        $("#next-btn").click(nextSong);
+        $("#prev-btn").click(prevSong);
+
+        $("#song-progress").click(function (e) {
+          const progressBar = $(this);
+          const clickPosition = e.pageX - progressBar.offset().left;
+          const progressBarWidth = progressBar.width();
+          const percentage = (clickPosition / progressBarWidth) * 100;
+
+          currentProgress = Math.min(100, Math.max(0, percentage));
+          updateProgressBar();
+        });
+
+        $(".action-btn").click(function () {
+          const heartIcon = $(this).find("i");
+          if (heartIcon.hasClass("far")) {
+            heartIcon
+              .removeClass("far")
+              .addClass("fas")
+              .css("color", "#ff6b6b");
+          } else {
+            heartIcon.removeClass("fas").addClass("far").css("color", "");
+          }
+        });
+
+        $(".playlist-card").click(function () {
+          alert("Playlist clicked: " + $(this).find(".playlist-name").text());
+        });
+
+        $(".track-item").click(function () {
+          const trackName = $(this).find(".track-name").text();
+          const artistName = $(this).find(".track-artist").text();
+          alert("Playing: " + trackName + " by " + artistName);
+        });
+
+        $(".btn-signup").click(function () {
+          alert("Sign up functionality would go here!");
+        });
+
+        $(".btn-login").click(function () {
+          alert("Login functionality would go here!");
+        });
+      });
+    </script>
+  </body>
+</html>

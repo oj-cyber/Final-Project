@@ -30,11 +30,6 @@
       <div class="loading-percentage" id="loading-percentage">0%</div>
     </div>
 
-    <!-- Mobile Navigation -->
-    <button class="mobile-nav-toggle" id="mobileNavToggle">
-      <i class="fas fa-bars"></i>
-    </button>
-
     <div class="mobile-nav-container" id="mobileNavContainer">
       <ul class="mobile-nav-menu">
         <li class="mobile-nav-item">
@@ -46,8 +41,18 @@
         <li class="mobile-nav-item">
           <a href="#" class="mobile-nav-link">Artists</a>
         </li>
-        <li class="mobile-nav-item">
-          <a href="#" class="mobile-nav-link">Frequently searched</a>
+        <li class="mobile-nav-item mobile-nav-dropdown">
+          <a href="#" class="mobile-nav-link dropdown-toggle">
+            Frequently searched
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <ul class="mobile-dropdown-content">
+            <li><a href="#">Top Charts</a></li>
+            <li><a href="#">New Releases</a></li>
+            <li><a href="#">Popular Playlists</a></li>
+            <li><a href="#">Trending Artists</a></li>
+            <li><a href="#">Music Genres</a></li>
+          </ul>
         </li>
         <li class="mobile-nav-item">
           <a href="#" class="mobile-nav-link">FAQ</a>
@@ -62,12 +67,16 @@
 
     <div class="container">
       <header>
-        <div class="logo">
+        <a href="#" class="logo">
           <div class="logo-icon">
-            <i class=""> <img src="img/space.ico" alt="Chill Mix" /></i>
+            <i class="fas fa-rocket"></i>
           </div>
-          <div class="logo-text">Space Rocket</div>
-        </div>
+          <div class="logo-text">Space<span>Rocket</span></div>
+        </a>
+
+        <button class="mobile-nav-toggle" id="mobileNavToggle">
+          <i class="fas fa-bars"></i>
+        </button>
 
         <nav>
           <ul>
@@ -76,7 +85,10 @@
             <li><a href="#">Artists</a></li>
             <li><a href="#">FAQ</a></li>
             <li class="nav-dropdown">
-              <a href="#">Frequently searched</a>
+              <a href="#" class="dropdown-btn">
+                Frequently searched
+                <i class="fas fa-chevron-down"></i>
+              </a>
               <div class="dropdown-content">
                 <a href="#">Top Charts</a>
                 <a href="#">New Releases</a>
@@ -104,7 +116,10 @@
           <button class="btn btn-signup">Start Listening Now</button>
         </div>
         <div class="hero-image">
-          <img src="img/chris.avif" alt="Music Listening" />
+          <img
+            src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Music Listening"
+          />
         </div>
       </section>
 
@@ -112,7 +127,10 @@
         <h2 class="section-title">Now Playing</h2>
         <div class="player">
           <div class="album-art">
-            <img src="img/scratch.avif" alt="Album Art" />
+            <img
+              src="https://images.unsplash.com/photo-1511735111819-9a3f7709049c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80"
+              alt="Album Art"
+            />
           </div>
 
           <div class="track-info">
@@ -155,7 +173,10 @@
         <div class="playlist-grid">
           <div class="playlist-card">
             <div class="playlist-image">
-              <img src="img/space.ico" alt="Chill Mix" />
+              <img
+                src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Chill Mix"
+              />
             </div>
             <div class="playlist-info">
               <h3 class="playlist-name">Chill Vibes</h3>
@@ -165,7 +186,10 @@
 
           <div class="playlist-card">
             <div class="playlist-image">
-              <img src="img/work.avif" alt="Workout Mix" />
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                alt="Workout Mix"
+              />
             </div>
             <div class="playlist-info">
               <h3 class="playlist-name">Workout Energy</h3>
@@ -175,7 +199,10 @@
 
           <div class="playlist-card">
             <div class="playlist-image">
-              <img src="img/guiter.avif" alt="Focus Mix" />
+              <img
+                src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80"
+                alt="Focus Mix"
+              />
             </div>
             <div class="playlist-info">
               <h3 class="playlist-name">Focus Flow</h3>
@@ -185,7 +212,10 @@
 
           <div class="playlist-card">
             <div class="playlist-image">
-              <img src="img/party.avif" alt="Party Mix" />
+              <img
+                src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+                alt="Party Mix"
+              />
             </div>
             <div class="playlist-info">
               <h3 class="playlist-name">Party Starters</h3>
@@ -268,10 +298,10 @@
 
       <footer>
         <div class="footer-links">
-          <a href="#">About</a>
+          <a href="about.html">About</a>
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Service</a>
-          <a href="contact.html">Contact</a>
+          <a href="Conatct.html">Contact</a>
           <a href="#">Help Center</a>
         </div>
         <p>&copy; 2025 Space Rocket Music. All rights reserved.</p>
@@ -282,6 +312,8 @@
       $(document).ready(function () {
         function createStars() {
           const starsContainer = $("#stars");
+          starsContainer.empty();
+
           for (let i = 0; i < 50; i++) {
             const star = $('<div class="star"></div>');
             const size = Math.random() * 3 + 1;
@@ -307,40 +339,63 @@
           const rocketLoading = $("#space-rocket-loading");
 
           let progress = 0;
+          let animationId;
 
-          const loadInterval = setInterval(function () {
-            progress += Math.random() * 10;
+          function animateLoading() {
+            progress += Math.random() * 15;
             if (progress >= 100) {
               progress = 100;
-              clearInterval(loadInterval);
+              cancelAnimationFrame(animationId);
 
               setTimeout(function () {
-                rocketLoading.animate(
-                  {
-                    opacity: 0,
-                  },
-                  1000,
-                  function () {
-                    $(this).hide();
-                  }
-                );
-              }, 500);
+                rocketLoading.css({
+                  opacity: "0",
+                  "pointer-events": "none",
+                });
+                setTimeout(function () {
+                  rocketLoading.hide();
+                }, 500);
+              }, 300);
+            } else {
+              animationId = requestAnimationFrame(animateLoading);
             }
 
             loadingBar.css("width", progress + "%");
             percentage.text(Math.round(progress) + "%");
-          }, 200);
+          }
+
+          animationId = requestAnimationFrame(animateLoading);
         }
 
         createStars();
-        startRocketLoading();
+        setTimeout(startRocketLoading, 100);
 
         const mobileNavToggle = $("#mobileNavToggle");
         const mobileNavContainer = $("#mobileNavContainer");
 
-        mobileNavToggle.click(function () {
-          mobileNavContainer.toggleClass("show");
-          $(this).find("i").toggleClass("fa-bars fa-times");
+        function showMobileNav() {
+          mobileNavContainer.addClass("show");
+          $("body").css("overflow", "hidden");
+        }
+
+        function hideMobileNav() {
+          mobileNavContainer.removeClass("show");
+          $("body").css("overflow", "auto");
+        }
+
+        if ($(window).width() <= 768) {
+          setTimeout(showMobileNav, 1500);
+        }
+
+        mobileNavToggle.click(function (e) {
+          e.stopPropagation();
+          if (mobileNavContainer.hasClass("show")) {
+            hideMobileNav();
+            $(this).find("i").removeClass("fa-times").addClass("fa-bars");
+          } else {
+            showMobileNav();
+            $(this).find("i").removeClass("fa-bars").addClass("fa-times");
+          }
         });
 
         $(document).click(function (e) {
@@ -349,13 +404,27 @@
               .length
           ) {
             if (mobileNavContainer.hasClass("show")) {
-              mobileNavContainer.removeClass("show");
+              hideMobileNav();
               mobileNavToggle
                 .find("i")
                 .removeClass("fa-times")
                 .addClass("fa-bars");
             }
           }
+        });
+
+        $(".mobile-nav-dropdown > .dropdown-toggle").click(function (e) {
+          e.preventDefault();
+          $(this).parent().toggleClass("active");
+          $(this)
+            .find(".dropdown-arrow")
+            .toggleClass("fa-chevron-down fa-chevron-up");
+        });
+
+        $(".nav-dropdown > .dropdown-btn").click(function (e) {
+          e.preventDefault();
+          $(this).parent().toggleClass("active");
+          $(this).find("i").toggleClass("fa-chevron-down fa-chevron-up");
         });
 
         let isPlaying = false;
@@ -371,108 +440,51 @@
           const currentSeconds = Math.floor(
             (currentProgress / 100) * totalSeconds
           );
-
-          const currentMinutes = Math.floor(currentSeconds / 60);
-          const currentSecs = currentSeconds % 60;
-
-          const totalMinutes = Math.floor(totalSeconds / 60);
-          const totalSecs = totalSeconds % 60;
-
+          const minutes = Math.floor(currentSeconds / 60);
+          const seconds = currentSeconds % 60;
           $(".current-time").text(
-            `${currentMinutes}:${currentSecs < 10 ? "0" : ""}${currentSecs}`
-          );
-
-          $(".total-time").text(
-            `${totalMinutes}:${totalSecs < 10 ? "0" : ""}${totalSecs}`
+            `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`
           );
         }
 
-        function togglePlayPause() {
+        function togglePlay() {
           isPlaying = !isPlaying;
+          const playIcon = $("#play-icon");
 
           if (isPlaying) {
-            $("#play-icon").removeClass("fa-play").addClass("fa-pause");
-
+            playIcon.removeClass("fa-play").addClass("fa-pause");
             progressInterval = setInterval(function () {
               if (currentProgress < 100) {
                 currentProgress += 0.5;
                 updateProgressBar();
               } else {
                 clearInterval(progressInterval);
-                isPlaying = false;
-                $("#play-icon").removeClass("fa-pause").addClass("fa-play");
-                // Reset progress when song ends
-                currentProgress = 0;
-                updateProgressBar();
+                if (isRepeating) {
+                  currentProgress = 0;
+                  updateProgressBar();
+                  togglePlay();
+                } else {
+                  isPlaying = false;
+                  playIcon.removeClass("fa-pause").addClass("fa-play");
+                }
               }
             }, 1000);
           } else {
-            $("#play-icon").removeClass("fa-pause").addClass("fa-play");
+            playIcon.removeClass("fa-pause").addClass("fa-play");
             clearInterval(progressInterval);
           }
         }
 
-        function resetSong() {
-          currentProgress = 0;
-          updateProgressBar();
-          if (isPlaying) {
-            clearInterval(progressInterval);
-            progressInterval = setInterval(function () {
-              if (currentProgress < 100) {
-                currentProgress += 0.5;
-                updateProgressBar();
-              } else {
-                clearInterval(progressInterval);
-                isPlaying = false;
-                $("#play-icon").removeClass("fa-pause").addClass("fa-play");
-              }
-            }, 1000);
-          }
-        }
-
-        function nextSong() {
-          resetSong();
-        }
-
-        function prevSong() {
-          resetSong();
-        }
-
-        updateProgressBar();
-
-        $("#play-btn").click(togglePlayPause);
+        $("#play-btn").click(togglePlay);
 
         $("#shuffle-btn").click(function () {
           isShuffled = !isShuffled;
           $(this).toggleClass("active", isShuffled);
-          if (isShuffled) {
-            $(this).css("color", "#ff6b6b");
-          } else {
-            $(this).css("color", "white");
-          }
         });
 
         $("#repeat-btn").click(function () {
           isRepeating = !isRepeating;
           $(this).toggleClass("active", isRepeating);
-          if (isRepeating) {
-            $(this).css("color", "#ff6b6b");
-          } else {
-            $(this).css("color", "white");
-          }
-        });
-
-        $("#next-btn").click(nextSong);
-        $("#prev-btn").click(prevSong);
-
-        $("#song-progress").click(function (e) {
-          const progressBar = $(this);
-          const clickPosition = e.pageX - progressBar.offset().left;
-          const progressBarWidth = progressBar.width();
-          const percentage = (clickPosition / progressBarWidth) * 100;
-
-          currentProgress = Math.min(100, Math.max(0, percentage));
-          updateProgressBar();
         });
 
         $(".action-btn").click(function () {
@@ -487,23 +499,7 @@
           }
         });
 
-        $(".playlist-card").click(function () {
-          alert("Playlist clicked: " + $(this).find(".playlist-name").text());
-        });
-
-        $(".track-item").click(function () {
-          const trackName = $(this).find(".track-name").text();
-          const artistName = $(this).find(".track-artist").text();
-          alert("Playing: " + trackName + " by " + artistName);
-        });
-
-        $(".btn-signup").click(function () {
-          alert("Sign up functionality would go here!");
-        });
-
-        $(".btn-login").click(function () {
-          alert("Login functionality would go here!");
-        });
+        updateProgressBar();
       });
     </script>
   </body>

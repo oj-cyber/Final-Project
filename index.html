@@ -383,10 +383,6 @@
           $("body").css("overflow", "auto");
         }
 
-        if ($(window).width() <= 768) {
-          setTimeout(showMobileNav, 1500);
-        }
-
         mobileNavToggle.click(function (e) {
           e.stopPropagation();
           if (mobileNavContainer.hasClass("show")) {

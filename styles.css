@@ -324,7 +324,13 @@ nav ul li a:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow);
 }
-
+.pace {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: x-large;
+  color: rgb(0, 89, 255);
+  padding: 20px;
+  margin: auto;
+}
 .mobile-nav-toggle {
   display: none;
   background: none;

@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ | Space Rocket Music</title>
+    <style>
+      :root {
+        --primary: #0a0e2a;
+        --secondary: #1a1f4b;
+        --accent: #6a4cff;
+        --accent-light: #8a6eff;
+        --text: #e0e0ff;
+        --text-muted: #a0a0c0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--primary);
+        color: var(--text);
+        line-height: 1.6;
+        background-image: radial-gradient(
+            circle at 10% 20%,
+            rgba(106, 76, 255, 0.1) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(106, 76, 255, 0.1) 0%,
+            transparent 20%
+          );
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background-color: rgba(10, 14, 42, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--secondary);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        color: var(--accent);
+        font-size: 1.8rem;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      nav a:hover {
+        color: var(--accent-light);
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent);
+        transition: width 0.3s;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 80px 0 40px;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          rgba(26, 31, 75, 0.7) 0%,
+          rgba(10, 14, 42, 0.9) 100%
+        );
+        margin-bottom: 40px;
+        border-radius: 0 0 20px 20px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #fff, var(--accent-light));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--text-muted);
+      }
+
+      .search-container {
+        max-width: 600px;
+        margin: 30px auto 0;
+        position: relative;
+      }
+
+      .search-box {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 50px;
+        border: 2px solid var(--secondary);
+        background-color: rgba(26, 31, 75, 0.7);
+        color: var(--text);
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      .search-box:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(106, 76, 255, 0.3);
+      }
+
+      .search-button {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background: var(--accent);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .search-button:hover {
+        background: var(--accent-light);
+      }
+
+      .content {
+        padding: 40px 0;
+      }
+
+      .faq-categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+        margin-bottom: 40px;
+      }
+
+      .category-btn {
+        background-color: var(--secondary);
+        border: 2px solid transparent;
+        color: var(--text);
+        padding: 12px 24px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+
+      .category-btn:hover {
+        background-color: rgba(106, 76, 255, 0.2);
+        border-color: var(--accent);
+      }
+
+      .category-btn.active {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      .faq-section {
+        margin-bottom: 50px;
+      }
+
+      .section-title {
+        color: var(--accent-light);
+        margin-bottom: 30px;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .section-title i {
+        font-size: 1.8rem;
+      }
+
+      .faq-container {
+        background-color: var(--secondary);
+        border-radius: 15px;
+        padding: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(160, 160, 192, 0.2);
+        padding-bottom: 20px;
+        transition: all 0.3s;
+      }
+
+      .faq-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 15px 0;
+      }
+
+      .faq-question h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        flex: 1;
+      }
+
+      .faq-toggle {
+        color: var(--accent);
+        font-size: 1.3rem;
+        transition: transform 0.3s;
+        margin-left: 15px;
+        flex-shrink: 0;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-out;
+        color: var(--text-muted);
+      }
+
+      .faq-answer-content {
+        padding: 0 0 15px;
+      }
+
+      .faq-answer p {
+        margin-bottom: 15px;
+      }
+
+      .faq-answer ul,
+      .faq-answer ol {
+        margin-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      .faq-answer li {
+        margin-bottom: 8px;
+      }
+
+      .faq-item.active .faq-toggle {
+        transform: rotate(45deg);
+      }
+
+      .faq-item.active {
+        border-bottom-color: rgba(106, 76, 255, 0.3);
+      }
+
+      .contact-prompt {
+        background: linear-gradient(
+          135deg,
+          var(--secondary) 0%,
+          rgba(26, 31, 75, 0.8) 100%
+        );
+        border-radius: 15px;
+        padding: 40px;
+        text-align: center;
+        margin-top: 60px;
+        border: 1px solid rgba(106, 76, 255, 0.3);
+      }
+
+      .contact-prompt h2 {
+        color: var(--accent-light);
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+      }
+
+      .contact-prompt p {
+        color: var(--text-muted);
+        margin-bottom: 25px;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .contact-button {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+      }
+
+      .contact-button:hover {
+        background: var(--accent-light);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(106, 76, 255, 0.3);
+      }
+
+      footer {
+        background-color: var(--primary);
+        padding: 40px 0 20px;
+        margin-top: 60px;
+        border-top: 1px solid var(--secondary);
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 30px;
+      }
+
+      .footer-column {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer-column h3 {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-column a:hover {
+        color: var(--accent-light);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: var(--secondary);
+        border-radius: 50%;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid var(--secondary);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .faq-categories {
+          gap: 10px;
+        }
+
+        .category-btn {
+          padding: 10px 18px;
+          font-size: 0.9rem;
+        }
+
+        .faq-container {
+          padding: 20px;
+        }
+
+        .contact-prompt {
+          padding: 30px 20px;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">
+            <i class="fas fa-rocket logo-icon"></i>
+            Space Rocket Music
+          </a>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="FAQ.html">FAQ</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find quick answers to common questions about Space Rocket Music</p>
+        <div class="search-container">
+          <input
+            type="text"
+            class="search-box"
+            placeholder="Search for answers..."
+          />
+          <button class="search-button">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <div class="faq-categories">
+          <button class="category-btn active" data-category="all">
+            All Questions
+          </button>
+          <button class="category-btn" data-category="account">Account</button>
+          <button class="category-btn" data-category="subscription">
+            Subscription
+          </button>
+          <button class="category-btn" data-category="music">
+            Music & Playback
+          </button>
+          <button class="category-btn" data-category="technical">
+            Technical Issues
+          </button>
+          <button class="category-btn" data-category="billing">
+            Billing & Payments
+          </button>
+        </div>
+
+        <div class="faq-section">
+          <h2 class="section-title">
+            <i class="fas fa-user-circle"></i> Account & Profile
+          </h2>
+          <div class="faq-container">
+            <div class="faq-item" data-category="account">
+              <div class="faq-question">
+                <h3>How do I create a Space Rocket Music account?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>Creating an account is easy! Follow these steps:</p>
+                  <ol>
+                    <li>Click the "Sign Up" button in the top right corner</li>
+                    <li>Enter your email address and create a password</li>
+                    <li>Choose a username</li>
+                    <li>
+                      Verify your email address by clicking the link we send you
+                    </li>
+                    <li>Complete your profile with your music preferences</li>
+                  </ol>
+                  <p>
+                    Once completed, you'll have full access to Space Rocket
+                    Music!
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="account">
+              <div class="faq-question">
+                <h3>I forgot my password. How can I reset it?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>To reset your password:</p>
+                  <ol>
+                    <li>Go to the login page and click "Forgot Password"</li>
+                    <li>
+                      Enter the email address associated with your account
+                    </li>
+                    <li>Check your email for a password reset link</li>
+                    <li>Click the link and create a new password</li>
+                  </ol>
+                  <p>
+                    If you don't receive the email within a few minutes, check
+                    your spam folder or contact our support team.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="account">
+              <div class="faq-question">
+                <h3>Can I change my username?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>
+                    Yes, you can change your username once every 30 days. To
+                    change it:
+                  </p>
+                  <ol>
+                    <li>Go to your Account Settings</li>
+                    <li>Click on "Profile"</li>
+                    <li>Edit your username in the provided field</li>
+                    <li>Save your changes</li>
+                  </ol>
+                  <p>
+                    Please note that your new username must be unique and not
+                    already in use by another member.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="account">
+              <div class="faq-question">
+                <h3>How do I delete my account?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>We're sorry to see you go! To delete your account:</p>
+                  <ol>
+                    <li>Go to your Account Settings</li>
+                    <li>Scroll down to the "Account Management" section</li>
+                    <li>Click "Delete Account"</li>
+                    <li>Confirm your decision by entering your password</li>
+                  </ol>
+                  <p>
+                    <strong>Important:</strong> Account deletion is permanent
+                    and cannot be undone. All your data, playlists, and
+                    preferences will be permanently removed.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <h2 class="section-title">
+            <i class="fas fa-crown"></i> Subscription & Premium
+          </h2>
+          <div class="faq-container">
+            <div class="faq-item" data-category="subscription">
+              <div class="faq-question">
+                <h3>What are the benefits of a Premium subscription?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>
+                    With a Space Rocket Music Premium subscription, you get:
+                  </p>
+                  <ul>
+                    <li>Ad-free listening experience</li>
+                    <li>Unlimited skips</li>
+                    <li>Offline listening - download music to your device</li>
+                    <li>High-quality audio (up to 320 kbps)</li>
+                    <li>Exclusive content and early access to new releases</li>
+                    <li>Unlimited access to our entire music library</li>
+                    <li>Ability to create and share custom playlists</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="subscription">
+              <div class="faq-question">
+                <h3>How do I cancel my subscription?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>You can cancel your Premium subscription at any time:</p>
+                  <ol>
+                    <li>Go to your Account page</li>
+                    <li>Click on "Subscription"</li>
+                    <li>Select "Cancel Subscription"</li>
+                    <li>Follow the prompts to confirm cancellation</li>
+                  </ol>
+                  <p>
+                    Your Premium features will remain active until the end of
+                    your current billing period. After cancellation, your
+                    account will revert to our free tier.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="subscription">
+              <div class="faq-question">
+                <h3>Can I switch between subscription plans?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>
+                    Yes, you can upgrade or downgrade your subscription plan at
+                    any time:
+                  </p>
+                  <ol>
+                    <li>Go to your Account Settings</li>
+                    <li>Select "Subscription"</li>
+                    <li>Choose "Change Plan"</li>
+                    <li>Select your desired plan and confirm</li>
+                  </ol>
+                  <p>
+                    If you upgrade, the new features will be available
+                    immediately. If you downgrade, the changes will take effect
+                    at the start of your next billing cycle.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <h2 class="section-title">
+            <i class="fas fa-music"></i> Music & Playback
+          </h2>
+          <div class="faq-container">
+            <div class="faq-item" data-category="music">
+              <div class="faq-question">
+                <h3>How do I download music for offline listening?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>
+                    To download music for offline listening (Premium feature
+                    only):
+                  </p>
+                  <ol>
+                    <li>
+                      Find the album, playlist, or song you want to download
+                    </li>
+                    <li>Click the download icon (downward arrow)</li>
+                    <li>The content will be saved to your device</li>
+                    <li>
+                      Access your downloaded content in the "Downloads" section
+                    </li>
+                  </ol>
+                  <p>
+                    Make sure you have enough storage space on your device.
+                    Downloaded content is only available within the Space Rocket
+                    Music app.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="music">
+              <div class="faq-question">
+                <h3>Why is some music not available in my region?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>
+                    Music availability varies by region due to licensing
+                    restrictions set by music rights holders. While we strive to
+                    make our entire catalog available everywhere, some artists
+                    or labels restrict where their music can be streamed.
+                  </p>
+                  <p>
+                    If you believe specific content should be available in your
+                    region but isn't, please contact our support team with the
+                    details, and we'll look into it.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="music">
+              <div class="faq-question">
+                <h3>How do I create and share playlists?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>Creating and sharing playlists is easy:</p>
+                  <p><strong>To create a playlist:</strong></p>
+                  <ol>
+                    <li>Go to "Your Library"</li>
+                    <li>Click "Create Playlist"</li>
+                    <li>Give your playlist a name and description</li>
+                    <li>
+                      Start adding songs by clicking the "+" button next to any
+                      track
+                    </li>
+                  </ol>
+                  <p><strong>To share a playlist:</strong></p>
+                  <ol>
+                    <li>Open the playlist you want to share</li>
+                    <li>Click the three dots menu</li>
+                    <li>Select "Share"</li>
+                    <li>
+                      Choose how you want to share (link, social media, or
+                      directly with other Space Rocket Music users)
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <h2 class="section-title">
+            <i class="fas fa-tools"></i> Technical Issues
+          </h2>
+          <div class="faq-container">
+            <div class="faq-item" data-category="technical">
+              <div class="faq-question">
+                <h3>The music keeps buffering. What can I do?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>
+                    Buffering issues are usually related to your internet
+                    connection. Try these solutions:
+                  </p>
+                  <ul>
+                    <li>
+                      <strong>Check your internet speed:</strong> Make sure you
+                      have a stable connection
+                    </li>
+                    <li>
+                      <strong>Reduce audio quality:</strong> Go to Settings >
+                      Audio Quality and select a lower setting
+                    </li>
+                    <li>
+                      <strong>Close other apps:</strong> Other applications
+                      might be using your bandwidth
+                    </li>
+                    <li>
+                      <strong>Restart your device and router:</strong> This can
+                      resolve temporary connection issues
+                    </li>
+                    <li>
+                      <strong>Clear cache:</strong> Go to Settings > Storage and
+                      clear the app cache
+                    </li>
+                    <li>
+                      <strong>Update the app:</strong> Make sure you're using
+                      the latest version
+                    </li>
+                  </ul>
+                  <p>
+                    If problems persist, contact our support team for further
+                    assistance.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="technical">
+              <div class="faq-question">
+                <h3>The app crashes frequently. How can I fix this?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>
+                    If the app is crashing, try these troubleshooting steps:
+                  </p>
+                  <ol>
+                    <li>
+                      <strong>Update the app:</strong> Make sure you have the
+                      latest version installed
+                    </li>
+                    <li>
+                      <strong>Restart your device:</strong> This can resolve
+                      many temporary issues
+                    </li>
+                    <li>
+                      <strong>Clear app cache and data:</strong> Go to your
+                      device settings, find Space Rocket Music in the app list,
+                      and clear cache/data
+                    </li>
+                    <li>
+                      <strong>Reinstall the app:</strong> Uninstall and then
+                      reinstall the app from the official app store
+                    </li>
+                    <li>
+                      <strong>Check device compatibility:</strong> Make sure
+                      your device meets the minimum requirements
+                    </li>
+                  </ol>
+                  <p>
+                    If the problem continues, please contact our support team
+                    with details about your device and when the crashes occur.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-section">
+          <h2 class="section-title">
+            <i class="fas fa-credit-card"></i> Billing & Payments
+          </h2>
+          <div class="faq-container">
+            <div class="faq-item" data-category="billing">
+              <div class="faq-question">
+                <h3>How do I update my payment method?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>To update your payment method:</p>
+                  <ol>
+                    <li>Go to your Account Settings</li>
+                    <li>Select "Billing" or "Payment Methods"</li>
+                    <li>Click "Update Payment Method"</li>
+                    <li>Enter your new payment details</li>
+                    <li>Save the changes</li>
+                  </ol>
+                  <p>
+                    Your new payment method will be used for all future billing
+                    cycles.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="billing">
+              <div class="faq-question">
+                <h3>Why was my payment declined?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>Payment declines can happen for several reasons:</p>
+                  <ul>
+                    <li>Insufficient funds in your account</li>
+                    <li>Expired credit/debit card</li>
+                    <li>Incorrect billing information</li>
+                    <li>
+                      Bank or credit card company flagged the transaction as
+                      suspicious
+                    </li>
+                    <li>International transaction restrictions</li>
+                  </ul>
+                  <p>
+                    To resolve this, check your payment method details and
+                    contact your bank if necessary. You can also try using a
+                    different payment method.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item" data-category="billing">
+              <div class="faq-question">
+                <h3>How do I get a receipt for my payment?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-content">
+                  <p>You can access your payment receipts at any time:</p>
+                  <ol>
+                    <li>Go to your Account Settings</li>
+                    <li>Select "Billing History"</li>
+                    <li>Find the payment you need a receipt for</li>
+                    <li>Click "View Receipt" or "Download PDF"</li>
+                  </ol>
+                  <p>
+                    Receipts are also automatically emailed to the address
+                    associated with your account after each successful payment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-prompt">
+          <h2>Still have questions?</h2>
+          <p>
+            Our support team is here to help you with any other questions or
+            issues you might have.
+          </p>
+          <a href="contact.html" class="contact-button">Contact Support</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Space Rocket Music</h3>
+            <p>Your destination for out-of-this-world music experiences.</p>
+            <div class="social-links">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-spotify"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="TermsOfService.html">Terms of Service</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="Help center.html">Help Center</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Space Rocket Music. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // FAQ toggle functionality
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const item = question.parentElement;
+          const answer = item.querySelector(".faq-answer");
+
+          // Toggle current item
+          item.classList.toggle("active");
+
+          if (item.classList.contains("active")) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          } else {
+            answer.style.maxHeight = null;
+          }
+
+          // Close other FAQ items in the same container
+          const container = item.closest(".faq-container");
+          container.querySelectorAll(".faq-item").forEach((otherItem) => {
+            if (otherItem !== item && otherItem.classList.contains("active")) {
+              otherItem.classList.remove("active");
+              otherItem.querySelector(".faq-answer").style.maxHeight = null;
+            }
+          });
+        });
+      });
+
+      // Category filtering
+      document.querySelectorAll(".category-btn").forEach((button) => {
+        button.addEventListener("click", () => {
+          // Update active button
+          document.querySelectorAll(".category-btn").forEach((btn) => {
+            btn.classList.remove("active");
+          });
+          button.classList.add("active");
+
+          const category = button.getAttribute("data-category");
+          const allItems = document.querySelectorAll(".faq-item");
+
+          if (category === "all") {
+            // Show all items
+            allItems.forEach((item) => {
+              item.style.display = "block";
+            });
+          } else {
+            // Show only items from selected category
+            allItems.forEach((item) => {
+              if (item.getAttribute("data-category") === category) {
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            });
+          }
+        });
+      });
+
+      // Search functionality
+      document
+        .querySelector(".search-button")
+        .addEventListener("click", performSearch);
+      document
+        .querySelector(".search-box")
+        .addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            performSearch();
+          }
+        });
+
+      function performSearch() {
+        const searchTerm = document
+          .querySelector(".search-box")
+          .value.toLowerCase()
+          .trim();
+        if (searchTerm === "") return;
+
+        const allItems = document.querySelectorAll(".faq-item");
+        let foundResults = false;
+
+        allItems.forEach((item) => {
+          const question = item
+            .querySelector(".faq-question h3")
+            .textContent.toLowerCase();
+          const answer = item
+            .querySelector(".faq-answer-content")
+            .textContent.toLowerCase();
+
+          if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+            item.style.display = "block";
+            foundResults = true;
+
+            // Expand matching items
+            if (!item.classList.contains("active")) {
+              item.classList.add("active");
+              item.querySelector(".faq-answer").style.maxHeight =
+                item.querySelector(".faq-answer").scrollHeight + "px";
+            }
+          } else {
+            item.style.display = "none";
+          }
+        });
+
+        if (!foundResults) {
+          alert(
+            'No results found for "' + searchTerm + '". Try different keywords.'
+          );
+        }
+      }
+    </script>
+  </body>
+</html>

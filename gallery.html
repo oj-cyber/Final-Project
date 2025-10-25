@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery | Space Rocket Music</title>
+    <style>
+      :root {
+        --primary: #0a0e2a;
+        --secondary: #1a1f4b;
+        --accent: #6a4cff;
+        --accent-light: #8a6eff;
+        --text: #e0e0ff;
+        --text-muted: #a0a0c0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--primary);
+        color: var(--text);
+        line-height: 1.6;
+        background-image: radial-gradient(
+            circle at 10% 20%,
+            rgba(106, 76, 255, 0.1) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(106, 76, 255, 0.1) 0%,
+            transparent 20%
+          );
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background-color: rgba(10, 14, 42, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--secondary);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        color: var(--accent);
+        font-size: 1.8rem;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      nav a:hover {
+        color: var(--accent-light);
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent);
+        transition: width 0.3s;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 80px 0 40px;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          rgba(26, 31, 75, 0.7) 0%,
+          rgba(10, 14, 42, 0.9) 100%
+        );
+        margin-bottom: 40px;
+        border-radius: 0 0 20px 20px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #fff, var(--accent-light));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--text-muted);
+      }
+
+      .gallery-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .filter-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .filter-btn {
+        background-color: var(--secondary);
+        border: 2px solid transparent;
+        color: var(--text);
+        padding: 10px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+
+      .filter-btn:hover {
+        background-color: rgba(106, 76, 255, 0.2);
+        border-color: var(--accent);
+      }
+
+      .filter-btn.active {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      .view-options {
+        display: flex;
+        gap: 10px;
+      }
+
+      .view-btn {
+        background-color: var(--secondary);
+        border: 2px solid transparent;
+        color: var(--text);
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .view-btn:hover {
+        background-color: rgba(106, 76, 255, 0.2);
+        border-color: var(--accent);
+      }
+
+      .view-btn.active {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 25px;
+        margin-bottom: 50px;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        transition: all 0.4s;
+        cursor: pointer;
+        aspect-ratio: 1;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .gallery-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .gallery-item:hover .gallery-img {
+        transform: scale(1.1);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(10, 14, 42, 0.9), transparent);
+        padding: 20px;
+        transform: translateY(100%);
+        transition: transform 0.4s;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        transform: translateY(0);
+      }
+
+      .gallery-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+      }
+
+      .gallery-category {
+        font-size: 0.9rem;
+        color: var(--accent-light);
+      }
+
+      .gallery-actions {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        display: flex;
+        gap: 10px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .gallery-item:hover .gallery-actions {
+        opacity: 1;
+      }
+
+      .action-btn {
+        background-color: rgba(10, 14, 42, 0.7);
+        border: none;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .action-btn:hover {
+        background-color: var(--accent);
+        transform: scale(1.1);
+      }
+
+      /* Lightbox Modal */
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(10, 14, 42, 0.95);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+      }
+
+      .lightbox.active {
+        display: flex;
+      }
+
+      .lightbox-content {
+        max-width: 90%;
+        max-height: 90%;
+        position: relative;
+      }
+
+      .lightbox-img {
+        max-width: 100%;
+        max-height: 80vh;
+        border-radius: 10px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      }
+
+      .lightbox-info {
+        background-color: var(--secondary);
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
+        margin-top: -5px;
+      }
+
+      .lightbox-title {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+      }
+
+      .lightbox-category {
+        color: var(--accent-light);
+        margin-bottom: 10px;
+      }
+
+      .lightbox-desc {
+        color: var(--text-muted);
+        line-height: 1.5;
+      }
+
+      .lightbox-close {
+        position: absolute;
+        top: -40px;
+        right: 0;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .lightbox-close:hover {
+        color: var(--accent-light);
+      }
+
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(10, 14, 42, 0.7);
+        border: none;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .lightbox-nav:hover {
+        background: var(--accent);
+      }
+
+      .lightbox-prev {
+        left: 20px;
+      }
+
+      .lightbox-next {
+        right: 20px;
+      }
+
+      .load-more {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .load-btn {
+        background: linear-gradient(
+          to right,
+          var(--accent),
+          var(--accent-light)
+        );
+        border: none;
+        color: white;
+        padding: 15px 40px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .load-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(106, 76, 255, 0.3);
+      }
+
+      footer {
+        background-color: var(--primary);
+        padding: 40px 0 20px;
+        border-top: 1px solid var(--secondary);
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 30px;
+      }
+
+      .footer-column {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer-column h3 {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-column a:hover {
+        color: var(--accent-light);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: var(--secondary);
+        border-radius: 50%;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid var(--secondary);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .gallery-controls {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 15px;
+        }
+
+        .lightbox-nav {
+          width: 40px;
+          height: 40px;
+          font-size: 1.2rem;
+        }
+
+        .lightbox-prev {
+          left: 10px;
+        }
+
+        .lightbox-next {
+          right: 10px;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .filter-buttons {
+          justify-content: center;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">
+            <i class="fas fa-rocket logo-icon"></i>
+            Space Rocket Music
+          </a>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.css">About</a></li>
+              <li><a href="FAQ.html">FAQ</a></li>
+              <li><a href="category.html">Category</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Music Gallery</h1>
+        <p>Explore stunning visuals from our space-themed music universe</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <div class="gallery-controls">
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="artists">Artists</button>
+            <button class="filter-btn" data-filter="concerts">Concerts</button>
+            <button class="filter-btn" data-filter="albums">Albums</button>
+            <button class="filter-btn" data-filter="studio">Studio</button>
+          </div>
+
+          <div class="view-options">
+            <button class="view-btn active" data-view="grid">
+              <i class="fas fa-th"></i>
+            </button>
+            <button class="view-btn" data-view="masonry">
+              <i class="fas fa-th-large"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="gallery-grid" id="gallery-grid">
+          <!-- Gallery items will be inserted here by JavaScript -->
+        </div>
+
+        <div class="load-more">
+          <button class="load-btn" id="load-more">Load More Images</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lightbox-close">
+        <i class="fas fa-times"></i>
+      </button>
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+      <div class="lightbox-content">
+        <img class="lightbox-img" id="lightbox-img" src="" alt="" />
+        <div class="lightbox-info">
+          <h3 class="lightbox-title" id="lightbox-title">Image Title</h3>
+          <div class="lightbox-category" id="lightbox-category">Category</div>
+          <p class="lightbox-desc" id="lightbox-desc">
+            Image description goes here.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Space Rocket Music</h3>
+            <p>Your destination for out-of-this-world music experiences.</p>
+            <div class="social-links">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-spotify"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="FAQ.html">FAQ</a></li>
+              <li><a href="category.html">Categories</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="TermsOfService.html">Terms of Service</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="Help center.html">Help Center</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 Space Rocket Music. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Gallery data - 20 music-themed images with space aesthetic
+      const galleryData = [
+        {
+          id: 1,
+          title: "Cosmic Performance",
+          category: "concerts",
+          image:
+            "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description:
+            "A breathtaking concert under the stars with cosmic visuals.",
+        },
+        {
+          id: 2,
+          title: "Nebula Album Cover",
+          category: "albums",
+          image:
+            "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+          description: "Album artwork featuring stunning nebula visuals.",
+        },
+        {
+          id: 3,
+          title: "Stellar Recording Session",
+          category: "studio",
+          image:
+            "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Artist recording in a studio with cosmic ambiance.",
+        },
+        {
+          id: 4,
+          title: "Galactic DJ Set",
+          category: "artists",
+          image:
+            "https://images.unsplash.com/photo-1571974599782-87624638275f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80",
+          description: "DJ performing with galactic-themed visual effects.",
+        },
+        {
+          id: 5,
+          title: "Space Symphony",
+          category: "concerts",
+          image:
+            "https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Orchestra performing a space-themed symphony.",
+        },
+        {
+          id: 6,
+          title: "Astral Guitarist",
+          category: "artists",
+          image:
+            "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1305&q=80",
+          description: "Guitarist performing with cosmic backdrop.",
+        },
+        {
+          id: 7,
+          title: "Interstellar Vinyl",
+          category: "albums",
+          image:
+            "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+          description: "Limited edition interstellar-themed vinyl record.",
+        },
+        {
+          id: 8,
+          title: "Cosmic Music Video",
+          category: "studio",
+          image:
+            "https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Behind the scenes of a cosmic music video shoot.",
+        },
+        {
+          id: 9,
+          title: "Nebula Festival",
+          category: "concerts",
+          image:
+            "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Music festival with nebula-inspired stage design.",
+        },
+        {
+          id: 10,
+          title: "Starlight Singer",
+          category: "artists",
+          image:
+            "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Vocalist performing under starlight ambiance.",
+        },
+        {
+          id: 11,
+          title: "Galaxy EP Cover",
+          category: "albums",
+          image:
+            "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+          description: "EP artwork featuring a stunning galaxy design.",
+        },
+        {
+          id: 12,
+          title: "Space Sound Engineer",
+          category: "studio",
+          image:
+            "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Sound engineer working in a space-themed studio.",
+        },
+        {
+          id: 13,
+          title: "Cosmic Drum Solo",
+          category: "artists",
+          image:
+            "https://images.unsplash.com/photo-1519892300165-cb4742e1e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Drummer performing an epic cosmic drum solo.",
+        },
+        {
+          id: 14,
+          title: "Interstellar Concert",
+          category: "concerts",
+          image:
+            "https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Massive interstellar-themed concert production.",
+        },
+        {
+          id: 15,
+          title: "Astral Keyboardist",
+          category: "artists",
+          image:
+            "https://images.unsplash.com/photo-1571974599782-87624638275f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80",
+          description: "Keyboardist creating cosmic melodies.",
+        },
+        {
+          id: 16,
+          title: "Nebula Single Art",
+          category: "albums",
+          image:
+            "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+          description: "Single release artwork with nebula inspiration.",
+        },
+        {
+          id: 17,
+          title: "Space Mixing Session",
+          category: "studio",
+          image:
+            "https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Mixing session in a futuristic space studio.",
+        },
+        {
+          id: 18,
+          title: "Cosmic Bassist",
+          category: "artists",
+          image:
+            "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1305&q=80",
+          description: "Bass guitarist with cosmic stage presence.",
+        },
+        {
+          id: 19,
+          title: "Stellar Festival",
+          category: "concerts",
+          image:
+            "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Music festival with stellar production design.",
+        },
+        {
+          id: 20,
+          title: "Galaxy Recording",
+          category: "studio",
+          image:
+            "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          description: "Recording session with galaxy-themed ambiance.",
+        },
+      ];
+
+      // Initialize gallery
+      document.addEventListener("DOMContentLoaded", function () {
+        const galleryGrid = document.getElementById("gallery-grid");
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const viewButtons = document.querySelectorAll(".view-btn");
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxTitle = document.getElementById("lightbox-title");
+        const lightboxCategory = document.getElementById("lightbox-category");
+        const lightboxDesc = document.getElementById("lightbox-desc");
+        const lightboxClose = document.getElementById("lightbox-close");
+        const lightboxPrev = document.getElementById("lightbox-prev");
+        const lightboxNext = document.getElementById("lightbox-next");
+        const loadMoreBtn = document.getElementById("load-more");
+
+        let currentFilter = "all";
+        let currentView = "grid";
+        let currentIndex = 0;
+        let displayedItems = 8;
+
+        // Render gallery items
+        function renderGallery(itemsToShow = displayedItems) {
+          galleryGrid.innerHTML = "";
+
+          const filteredItems =
+            currentFilter === "all"
+              ? galleryData
+              : galleryData.filter((item) => item.category === currentFilter);
+
+          const items = filteredItems.slice(0, itemsToShow);
+
+          items.forEach((item, index) => {
+            const galleryItem = document.createElement("div");
+            galleryItem.className = "gallery-item";
+            galleryItem.setAttribute("data-category", item.category);
+            galleryItem.setAttribute("data-index", index);
+
+            galleryItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h3 class="gallery-title">${item.title}</h3>
+                            <div class="gallery-category">${item.category}</div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn view-btn" data-id="${item.id}">
+                                <i class="fas fa-expand"></i>
+                            </button>
+                            <button class="action-btn like-btn" data-id="${item.id}">
+                                <i class="far fa-heart"></i>
+                            </button>
+                        </div>
+                    `;
+
+            galleryGrid.appendChild(galleryItem);
+
+            // Add click event to open lightbox
+            galleryItem.addEventListener("click", function (e) {
+              if (!e.target.classList.contains("action-btn")) {
+                openLightbox(index, filteredItems);
+              }
+            });
+          });
+
+          // Update load more button visibility
+          if (itemsToShow >= filteredItems.length) {
+            loadMoreBtn.style.display = "none";
+          } else {
+            loadMoreBtn.style.display = "block";
+          }
+        }
+
+        // Open lightbox
+        function openLightbox(index, items) {
+          currentIndex = index;
+          const item = items[index];
+
+          lightboxImg.src = item.image;
+          lightboxTitle.textContent = item.title;
+          lightboxCategory.textContent = item.category;
+          lightboxDesc.textContent = item.description;
+
+          lightbox.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+
+        // Close lightbox
+        function closeLightbox() {
+          lightbox.classList.remove("active");
+          document.body.style.overflow = "auto";
+        }
+
+        // Navigate lightbox
+        function navigateLightbox(direction, items) {
+          if (direction === "next") {
+            currentIndex = (currentIndex + 1) % items.length;
+          } else {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+          }
+
+          const item = items[currentIndex];
+          lightboxImg.src = item.image;
+          lightboxTitle.textContent = item.title;
+          lightboxCategory.textContent = item.category;
+          lightboxDesc.textContent = item.description;
+        }
+
+        // Filter gallery
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const filter = this.getAttribute("data-filter");
+
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            currentFilter = filter;
+            displayedItems = 8;
+            renderGallery();
+          });
+        });
+
+        // Change view
+        viewButtons.forEach((button) => {
+          button.addEventListener("click", function () {
+            const view = this.getAttribute("data-view");
+
+            viewButtons.forEach((btn) => btn.classList.remove("active"));
+            this.classList.add("active");
+
+            currentView = view;
+
+            if (view === "masonry") {
+              galleryGrid.style.gridTemplateColumns =
+                "repeat(auto-fill, minmax(250px, 1fr))";
+            } else {
+              galleryGrid.style.gridTemplateColumns =
+                "repeat(auto-fill, minmax(280px, 1fr))";
+            }
+          });
+        });
+
+        // Load more items
+        loadMoreBtn.addEventListener("click", function () {
+          displayedItems += 4;
+          renderGallery(displayedItems);
+        });
+
+        // Lightbox events
+        lightboxClose.addEventListener("click", closeLightbox);
+
+        lightbox.addEventListener("click", function (e) {
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+
+        lightboxPrev.addEventListener("click", function () {
+          const filteredItems =
+            currentFilter === "all"
+              ? galleryData
+              : galleryData.filter((item) => item.category === currentFilter);
+          navigateLightbox("prev", filteredItems);
+        });
+
+        lightboxNext.addEventListener("click", function () {
+          const filteredItems =
+            currentFilter === "all"
+              ? galleryData
+              : galleryData.filter((item) => item.category === currentFilter);
+          navigateLightbox("next", filteredItems);
+        });
+
+        // Keyboard navigation for lightbox
+        document.addEventListener("keydown", function (e) {
+          if (!lightbox.classList.contains("active")) return;
+
+          const filteredItems =
+            currentFilter === "all"
+              ? galleryData
+              : galleryData.filter((item) => item.category === currentFilter);
+
+          if (e.key === "Escape") {
+            closeLightbox();
+          } else if (e.key === "ArrowLeft") {
+            navigateLightbox("prev", filteredItems);
+          } else if (e.key === "ArrowRight") {
+            navigateLightbox("next", filteredItems);
+          }
+        });
+
+        // Initial render
+        renderGallery();
+      });
+    </script>
+  </body>
+</html>

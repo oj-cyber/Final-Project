@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms of Service | Space Rocket Music</title>
+    <style>
+      :root {
+        --primary: #0a0e2a;
+        --secondary: #1a1f4b;
+        --accent: #6a4cff;
+        --accent-light: #8a6eff;
+        --text: #e0e0ff;
+        --text-muted: #a0a0c0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--primary);
+        color: var(--text);
+        line-height: 1.6;
+        background-image: radial-gradient(
+            circle at 10% 20%,
+            rgba(106, 76, 255, 0.1) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(106, 76, 255, 0.1) 0%,
+            transparent 20%
+          );
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background-color: rgba(10, 14, 42, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--secondary);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        color: var(--accent);
+        font-size: 1.8rem;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      nav a:hover {
+        color: var(--accent-light);
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent);
+        transition: width 0.3s;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 80px 0 40px;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          rgba(26, 31, 75, 0.7) 0%,
+          rgba(10, 14, 42, 0.9) 100%
+        );
+        margin-bottom: 40px;
+        border-radius: 0 0 20px 20px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #fff, var(--accent-light));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--text-muted);
+      }
+
+      .content {
+        padding: 40px 0;
+      }
+
+      .terms-section {
+        background-color: var(--secondary);
+        border-radius: 15px;
+        padding: 30px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .terms-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+      }
+
+      .terms-section h2 {
+        color: var(--accent-light);
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .terms-section h2 i {
+        font-size: 1.5rem;
+      }
+
+      .terms-section p {
+        margin-bottom: 15px;
+      }
+
+      .terms-section ul {
+        margin-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      .terms-section li {
+        margin-bottom: 8px;
+      }
+
+      .terms-section ol {
+        margin-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      .highlight {
+        background: rgba(106, 76, 255, 0.1);
+        border-left: 4px solid var(--accent);
+        padding: 15px 20px;
+        margin: 20px 0;
+        border-radius: 0 8px 8px 0;
+      }
+
+      .update-date {
+        text-align: center;
+        color: var(--text-muted);
+        font-style: italic;
+        margin-top: 40px;
+      }
+
+      footer {
+        background-color: var(--primary);
+        padding: 40px 0 20px;
+        margin-top: 60px;
+        border-top: 1px solid var(--secondary);
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 30px;
+      }
+
+      .footer-column {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer-column h3 {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-column a:hover {
+        color: var(--accent-light);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: var(--secondary);
+        border-radius: 50%;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid var(--secondary);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      .toc-container {
+        background-color: var(--secondary);
+        border-radius: 15px;
+        padding: 25px;
+        margin-bottom: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .toc-container h3 {
+        color: var(--accent-light);
+        margin-bottom: 15px;
+        font-size: 1.5rem;
+      }
+
+      .toc-list {
+        list-style-type: none;
+        margin-left: 0;
+      }
+
+      .toc-list li {
+        margin-bottom: 10px;
+        padding-left: 15px;
+        position: relative;
+      }
+
+      .toc-list li:before {
+        content: "•";
+        color: var(--accent);
+        position: absolute;
+        left: 0;
+      }
+
+      .toc-list a {
+        color: var(--text);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .toc-list a:hover {
+        color: var(--accent-light);
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .terms-section {
+          padding: 20px;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="#" class="logo">
+            <i class="fas fa-rocket logo-icon"></i>
+            Space Rocket Music
+          </a>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="FAQ.html">FAQ</a></li>
+
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Terms of Service</h1>
+        <p>
+          Please read these terms carefully before using our website and
+          services.
+        </p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <div class="toc-container">
+          <h3>Table of Contents</h3>
+          <ul class="toc-list">
+            <li><a href="#acceptance">1. Acceptance of Terms</a></li>
+            <li><a href="#services">2. Description of Services</a></li>
+            <li><a href="#account">3. User Accounts</a></li>
+            <li><a href="#subscriptions">4. Subscriptions and Payments</a></li>
+            <li><a href="#content">5. User Content</a></li>
+            <li><a href="#intellectual">6. Intellectual Property</a></li>
+            <li><a href="#prohibited">7. Prohibited Activities</a></li>
+            <li><a href="#termination">8. Termination</a></li>
+            <li><a href="#disclaimer">9. Disclaimer of Warranties</a></li>
+            <li><a href="#limitation">10. Limitation of Liability</a></li>
+            <li><a href="#changes">11. Changes to Terms</a></li>
+            <li><a href="#contact">12. Contact Information</a></li>
+          </ul>
+        </div>
+
+        <div class="terms-section" id="acceptance">
+          <h2><i class="fas fa-check-circle"></i> 1. Acceptance of Terms</h2>
+          <p>
+            By accessing or using the Space Rocket Music website and services,
+            you agree to be bound by these Terms of Service and all applicable
+            laws and regulations. If you do not agree with any of these terms,
+            you are prohibited from using or accessing this site.
+          </p>
+          <p>
+            The materials contained in this website are protected by applicable
+            copyright and trademark law.
+          </p>
+        </div>
+
+        <div class="terms-section" id="services">
+          <h2><i class="fas fa-music"></i> 2. Description of Services</h2>
+          <p>
+            Space Rocket Music provides a platform for streaming music,
+            discovering new artists, and accessing music-related content. Our
+            services include:
+          </p>
+          <ul>
+            <li>Streaming of music tracks and albums</li>
+            <li>Personalized music recommendations</li>
+            <li>Artist profiles and content</li>
+            <li>Curated playlists and radio stations</li>
+            <li>Music downloads (where available)</li>
+            <li>Social features for music discovery</li>
+          </ul>
+          <p>
+            We reserve the right to modify, suspend, or discontinue any aspect
+            of our services at any time without prior notice.
+          </p>
+        </div>
+
+        <div class="terms-section" id="account">
+          <h2><i class="fas fa-user"></i> 3. User Accounts</h2>
+          <p>
+            To access certain features of our service, you may be required to
+            create an account. When creating an account, you agree to:
+          </p>
+          <ul>
+            <li>Provide accurate, current, and complete information</li>
+            <li>
+              Maintain the security of your password and accept all risks of
+              unauthorized access
+            </li>
+            <li>Promptly update your information if it changes</li>
+            <li>
+              Be responsible for all activities that occur under your account
+            </li>
+          </ul>
+          <p>
+            You must be at least 13 years old to create an account. If you are
+            under 18, you represent that you have your parent or guardian's
+            permission to use our services.
+          </p>
+        </div>
+
+        <div class="terms-section" id="subscriptions">
+          <h2>
+            <i class="fas fa-credit-card"></i> 4. Subscriptions and Payments
+          </h2>
+          <p>
+            Some features of Space Rocket Music may require a paid subscription.
+            By subscribing, you agree to:
+          </p>
+          <ul>
+            <li>Pay all applicable fees for the services you select</li>
+            <li>
+              Authorize us to charge your chosen payment method for these fees
+            </li>
+            <li>
+              Understand that subscriptions automatically renew until canceled
+            </li>
+          </ul>
+          <div class="highlight">
+            <p>
+              You may cancel your subscription at any time, but we do not
+              provide refunds for partial subscription periods except as
+              required by law.
+            </p>
+          </div>
+          <p>
+            We reserve the right to change our subscription fees at any time. We
+            will provide you with advance notice of any fee changes.
+          </p>
+        </div>
+
+        <div class="terms-section" id="content">
+          <h2><i class="fas fa-file-upload"></i> 5. User Content</h2>
+          <p>
+            Our service may allow you to upload, post, or otherwise submit
+            content, including comments, playlists, and profile information. You
+            retain ownership of any intellectual property rights that you hold
+            in that content.
+          </p>
+          <p>
+            By submitting content, you grant Space Rocket Music a worldwide,
+            royalty-free, sublicensable, and transferable license to host,
+            store, use, display, reproduce, modify, and distribute your content
+            for the purpose of operating and improving our services.
+          </p>
+          <p>
+            You are solely responsible for the content you submit and the
+            consequences of posting it. You represent that you have all
+            necessary rights to the content you submit.
+          </p>
+        </div>
+
+        <div class="terms-section" id="intellectual">
+          <h2><i class="fas fa-copyright"></i> 6. Intellectual Property</h2>
+          <p>
+            All content available on the Space Rocket Music service, including
+            designs, text, graphics, images, information, software, and other
+            files, are the proprietary property of Space Rocket Music or our
+            licensors.
+          </p>
+          <p>
+            The music available through our service is owned by the respective
+            rights holders and is protected by copyright and other intellectual
+            property laws. Your use of the music is subject to the specific
+            license granted by these Terms.
+          </p>
+          <p>
+            You may not copy, reproduce, distribute, transmit, broadcast,
+            display, sell, license, or otherwise exploit any content for any
+            other purposes without the prior written consent of Space Rocket
+            Music or the respective licensors.
+          </p>
+        </div>
+
+        <div class="terms-section" id="prohibited">
+          <h2><i class="fas fa-ban"></i> 7. Prohibited Activities</h2>
+          <p>When using Space Rocket Music, you agree not to:</p>
+          <ul>
+            <li>
+              Use the service for any illegal purpose or in violation of any
+              laws
+            </li>
+            <li>
+              Violate the rights of others, including copyright, trademark, or
+              privacy rights
+            </li>
+            <li>Upload or transmit viruses or other malicious code</li>
+            <li>
+              Attempt to gain unauthorized access to our systems or user
+              accounts
+            </li>
+            <li>
+              Use automated means to access the service or collect information
+            </li>
+            <li>Interfere with or disrupt the service or servers</li>
+            <li>Harass, abuse, or harm another person</li>
+            <li>Impersonate any person or entity</li>
+          </ul>
+          <p>
+            We reserve the right to terminate your access to the service for
+            violating these prohibitions.
+          </p>
+        </div>
+
+        <div class="terms-section" id="termination">
+          <h2><i class="fas fa-power-off"></i> 8. Termination</h2>
+          <p>
+            You may terminate your account at any time by following the
+            instructions on our website.
+          </p>
+          <p>
+            We may suspend or terminate your access to the service at our sole
+            discretion, with or without cause, and with or without notice.
+          </p>
+          <p>
+            Upon termination, your right to use the service will immediately
+            cease. If you wish to terminate your account, you may simply
+            discontinue using the service.
+          </p>
+        </div>
+
+        <div class="terms-section" id="disclaimer">
+          <h2>
+            <i class="fas fa-exclamation-triangle"></i> 9. Disclaimer of
+            Warranties
+          </h2>
+          <p>
+            The Space Rocket Music service is provided on an "as is" and "as
+            available" basis. We make no warranties, expressed or implied, and
+            hereby disclaim and negate all other warranties including, without
+            limitation, implied warranties or conditions of merchantability,
+            fitness for a particular purpose, or non-infringement of
+            intellectual property or other violation of rights.
+          </p>
+          <p>
+            We do not warrant or make any representations concerning the
+            accuracy, likely results, or reliability of the use of the materials
+            on our website or otherwise relating to such materials or on any
+            sites linked to this site.
+          </p>
+        </div>
+
+        <div class="terms-section" id="limitation">
+          <h2>
+            <i class="fas fa-balance-scale"></i> 10. Limitation of Liability
+          </h2>
+          <p>
+            In no event shall Space Rocket Music or its suppliers be liable for
+            any damages (including, without limitation, damages for loss of data
+            or profit, or due to business interruption) arising out of the use
+            or inability to use the materials on Space Rocket Music's website,
+            even if Space Rocket Music or a Space Rocket Music authorized
+            representative has been notified orally or in writing of the
+            possibility of such damage.
+          </p>
+          <p>
+            Because some jurisdictions do not allow limitations on implied
+            warranties, or limitations of liability for consequential or
+            incidental damages, these limitations may not apply to you.
+          </p>
+        </div>
+
+        <div class="terms-section" id="changes">
+          <h2><i class="fas fa-sync-alt"></i> 11. Changes to Terms</h2>
+          <p>
+            We reserve the right, at our sole discretion, to modify or replace
+            these Terms at any time. If a revision is material, we will provide
+            at least 30 days' notice prior to any new terms taking effect.
+          </p>
+          <p>
+            What constitutes a material change will be determined at our sole
+            discretion. By continuing to access or use our service after those
+            revisions become effective, you agree to be bound by the revised
+            terms.
+          </p>
+        </div>
+
+        <div class="terms-section" id="contact">
+          <h2><i class="fas fa-envelope"></i> 12. Contact Information</h2>
+          <p>
+            If you have any questions about these Terms of Service, please
+            contact us:
+          </p>
+          <ul>
+            <li>By email: legal@spacerocketmusic.com</li>
+            <li>Through our website: www.spacerocketmusic.com/contact</li>
+            <li>
+              By mail: Space Rocket Music, 123 Galaxy Avenue, Cosmos City, SC
+              12345
+            </li>
+          </ul>
+        </div>
+
+        <div class="update-date">
+          <p>
+            These terms were last updated on <strong>August 15, 2023</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Space Rocket Music</h3>
+            <p>Your destination for out-of-this-world music experiences.</p>
+            <div class="social-links">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-spotify"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+
+              <li><a href="FAQ.html">FAQ</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="TermsOfService.html">Terms of Service</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="Help center.html">Help Center</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Space Rocket Music. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Help Center | Space Rocket Music</title>
+    <style>
+      :root {
+        --primary: #0a0e2a;
+        --secondary: #1a1f4b;
+        --accent: #6a4cff;
+        --accent-light: #8a6eff;
+        --text: #e0e0ff;
+        --text-muted: #a0a0c0;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--primary);
+        color: var(--text);
+        line-height: 1.6;
+        background-image: radial-gradient(
+            circle at 10% 20%,
+            rgba(106, 76, 255, 0.1) 0%,
+            transparent 20%
+          ),
+          radial-gradient(
+            circle at 90% 80%,
+            rgba(106, 76, 255, 0.1) 0%,
+            transparent 20%
+          );
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background-color: rgba(10, 14, 42, 0.9);
+        backdrop-filter: blur(10px);
+        padding: 20px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        border-bottom: 1px solid var(--secondary);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: white;
+        text-decoration: none;
+      }
+
+      .logo-icon {
+        color: var(--accent);
+        font-size: 1.8rem;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+        position: relative;
+      }
+
+      nav a:hover {
+        color: var(--accent-light);
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--accent);
+        transition: width 0.3s;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      .hero {
+        padding: 80px 0 40px;
+        text-align: center;
+        background: linear-gradient(
+          135deg,
+          rgba(26, 31, 75, 0.7) 0%,
+          rgba(10, 14, 42, 0.9) 100%
+        );
+        margin-bottom: 40px;
+        border-radius: 0 0 20px 20px;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        background: linear-gradient(to right, #fff, var(--accent-light));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--text-muted);
+      }
+
+      .search-container {
+        max-width: 600px;
+        margin: 30px auto 0;
+        position: relative;
+      }
+
+      .search-box {
+        width: 100%;
+        padding: 15px 20px;
+        border-radius: 50px;
+        border: 2px solid var(--secondary);
+        background-color: rgba(26, 31, 75, 0.7);
+        color: var(--text);
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      .search-box:focus {
+        outline: none;
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(106, 76, 255, 0.3);
+      }
+
+      .search-button {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        background: var(--accent);
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .search-button:hover {
+        background: var(--accent-light);
+      }
+
+      .content {
+        padding: 40px 0;
+      }
+
+      .help-section {
+        margin-bottom: 60px;
+      }
+
+      .section-title {
+        color: var(--accent-light);
+        margin-bottom: 30px;
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .help-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+      }
+
+      .help-card {
+        background-color: var(--secondary);
+        border-radius: 15px;
+        padding: 25px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        cursor: pointer;
+        text-align: center;
+      }
+
+      .help-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+      }
+
+      .card-icon {
+        font-size: 2.5rem;
+        color: var(--accent);
+        margin-bottom: 15px;
+      }
+
+      .help-card h3 {
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .help-card p {
+        color: var(--text-muted);
+        margin-bottom: 15px;
+      }
+
+      .card-link {
+        color: var(--accent-light);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        transition: gap 0.3s;
+      }
+
+      .card-link:hover {
+        gap: 10px;
+      }
+
+      .faq-container {
+        background-color: var(--secondary);
+        border-radius: 15px;
+        padding: 30px;
+        margin-top: 30px;
+      }
+
+      .faq-item {
+        margin-bottom: 20px;
+        border-bottom: 1px solid rgba(160, 160, 192, 0.2);
+        padding-bottom: 20px;
+      }
+
+      .faq-question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        padding: 10px 0;
+      }
+
+      .faq-question h3 {
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      .faq-toggle {
+        color: var(--accent);
+        font-size: 1.2rem;
+        transition: transform 0.3s;
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        color: var(--text-muted);
+      }
+
+      .faq-answer p {
+        padding: 15px 0 5px;
+      }
+
+      .faq-item.active .faq-toggle {
+        transform: rotate(45deg);
+      }
+
+      .contact-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+      }
+
+      .contact-card {
+        background-color: var(--secondary);
+        border-radius: 15px;
+        padding: 25px;
+        text-align: center;
+        transition: transform 0.3s;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .contact-icon {
+        font-size: 2rem;
+        color: var(--accent);
+        margin-bottom: 15px;
+      }
+
+      .contact-card h3 {
+        margin-bottom: 10px;
+      }
+
+      .contact-card p {
+        color: var(--text-muted);
+        margin-bottom: 15px;
+      }
+
+      .contact-button {
+        display: inline-block;
+        background: var(--accent);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s;
+      }
+
+      .contact-button:hover {
+        background: var(--accent-light);
+        transform: translateY(-3px);
+      }
+
+      .status-container {
+        background-color: var(--secondary);
+        border-radius: 15px;
+        padding: 25px;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .status-indicator {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .status-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #4caf50;
+      }
+
+      .status-dot.offline {
+        background-color: #f44336;
+      }
+
+      .status-dot.maintenance {
+        background-color: #ff9800;
+      }
+
+      .update-date {
+        text-align: center;
+        color: var(--text-muted);
+        font-style: italic;
+        margin-top: 40px;
+      }
+
+      footer {
+        background-color: var(--primary);
+        padding: 40px 0 20px;
+        margin-top: 60px;
+        border-top: 1px solid var(--secondary);
+      }
+
+      .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 30px;
+      }
+
+      .footer-column {
+        flex: 1;
+        min-width: 200px;
+      }
+
+      .footer-column h3 {
+        color: white;
+        margin-bottom: 20px;
+        font-size: 1.2rem;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column li {
+        margin-bottom: 10px;
+      }
+
+      .footer-column a {
+        color: var(--text-muted);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-column a:hover {
+        color: var(--accent-light);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 15px;
+        margin-top: 10px;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        background-color: var(--secondary);
+        border-radius: 50%;
+        transition: all 0.3s;
+      }
+
+      .social-links a:hover {
+        background-color: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .copyright {
+        text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid var(--secondary);
+        color: var(--text-muted);
+        font-size: 0.9rem;
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .hero h1 {
+          font-size: 2.2rem;
+        }
+
+        .status-container {
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+        }
+
+        .footer-content {
+          flex-direction: column;
+          gap: 30px;
+        }
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <i class="fas fa-rocket logo-icon"></i>
+            Space Rocket Music
+          </a>
+          <nav>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+              <li><a href="FAQ.html">FAQ</a></li>
+              <li><a href="category.html">CATEGORY</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Help Center</h1>
+        <p>
+          Find answers to common questions and get support for your Space Rocket
+          Music experience.
+        </p>
+        <div class="search-container">
+          <input
+            type="text"
+            class="search-box"
+            placeholder="Search for help..."
+          />
+          <button class="search-button">
+            <i class="fas fa-search"></i> Search
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <div class="help-section">
+          <h2 class="section-title">How can we help you?</h2>
+          <div class="help-cards">
+            <div class="help-card">
+              <div class="card-icon">
+                <i class="fas fa-user-circle"></i>
+              </div>
+              <h3>Account & Profile</h3>
+              <p>
+                Manage your account, update profile information, and
+                troubleshoot login issues.
+              </p>
+              <a href="" class="card-link"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="help-card">
+              <div class="card-icon">
+                <i class="fas fa-music"></i>
+              </div>
+              <h3>Music & Playback</h3>
+              <p>
+                Fix playback issues, manage your library, and learn about audio
+                quality settings.
+              </p>
+              <a href="" class="card-link"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="help-card">
+              <div class="card-icon">
+                <i class="fas fa-credit-card"></i>
+              </div>
+              <h3>Billing & Subscription</h3>
+              <p>
+                Manage your subscription, update payment methods, and view
+                billing history.
+              </p>
+              <a href="" class="card-link"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="help-card">
+              <div class="card-icon">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+              <h3>Apps & Devices</h3>
+              <p>
+                Download our apps, troubleshoot device issues, and optimize your
+                experience.
+              </p>
+              <a href="" class="card-link"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="help-card">
+              <div class="card-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <h3>Privacy & Security</h3>
+              <p>
+                Learn about our privacy practices and how to keep your account
+                secure.
+              </p>
+              <a href="#" class="card-link"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="help-card">
+              <div class="card-icon">
+                <i class="fas fa-headphones"></i>
+              </div>
+              <h3>Troubleshooting</h3>
+              <p>
+                Find solutions for common technical issues and connection
+                problems.
+              </p>
+              <a href="" class="card-link"
+                >Learn more <i class="fas fa-arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <div class="faq-container">
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How do I reset my password?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  To reset your password, go to the login page and click "Forgot
+                  Password". Enter your email address and we'll send you a link
+                  to reset your password. Make sure to check your spam folder if
+                  you don't see the email in your inbox.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Why is my music buffering?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Buffering can be caused by a slow internet connection. Try
+                  these solutions:
+                </p>
+                <ul>
+                  <li>Check your internet connection speed</li>
+                  <li>Reduce audio quality in Settings > Audio Quality</li>
+                  <li>Close other apps that might be using bandwidth</li>
+                  <li>Restart your router and device</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How do I cancel my subscription?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  You can cancel your subscription at any time by going to your
+                  Account page, selecting "Subscription", and clicking "Cancel
+                  Subscription". Your premium features will remain active until
+                  the end of your current billing period.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Can I use Space Rocket Music offline?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Yes! With a Premium subscription, you can download music for
+                  offline listening. Simply find the album, playlist, or song
+                  you want to download and click the download icon. You can
+                  access your downloaded content in the "Downloads" section of
+                  the app.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>How do I create and share playlists?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  To create a playlist, go to "Your Library" and click "Create
+                  Playlist". Give it a name and start adding songs. To share,
+                  open the playlist, click the three dots menu, and select
+                  "Share". You can share via link, social media, or directly
+                  with other Space Rocket Music users.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <h3>Why can't I find a specific artist or song?</h3>
+                <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Some content may not be available due to licensing
+                  restrictions in your region. If you believe content should be
+                  available but isn't, please contact our support team with the
+                  details.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <h2 class="section-title">Contact Support</h2>
+          <div class="contact-options">
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <h3>Live Chat</h3>
+              <p>Get immediate help from our support team</p>
+              <a href="" class="contact-button">Start Chat</a>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h3>Email Support</h3>
+              <p>Send us a message and we'll respond within 24 hours</p>
+              <a href="ojpaak169@gmail.com" class="contact-button"
+                >Send Email</a
+              >
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <h3>Phone Support</h3>
+              <p>Speak directly with a support representative</p>
+              <a href="contact.html" class="contact-button">Call Now</a>
+            </div>
+
+            <div class="contact-card">
+              <div class="contact-icon">
+                <i class="fas fa-comment-dots"></i>
+              </div>
+              <h3>Community Forum</h3>
+              <p>Get help from other Space Rocket Music users</p>
+              <a href="" class="contact-button">Visit Forum</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="help-section">
+          <h2 class="section-title">System Status</h2>
+          <div class="status-container">
+            <div class="status-indicator">
+              <div class="status-dot"></div>
+              <div>
+                <h3>All Systems Operational</h3>
+                <p>Space Rocket Music is running smoothly</p>
+              </div>
+            </div>
+            <div>
+              <a href="contact.html" class="contact-button">View Status Page</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="update-date">
+          <p>Last updated: <strong>August 15, 2023</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>Space Rocket Music</h3>
+            <p>Your destination for out-of-this-world music experiences.</p>
+            <div class="social-links">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+              <a href=""><i class="fab fa-spotify"></i></a>
+            </div>
+          </div>
+          <div class="footer-column">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="TermsOfService.html">Terms of Service</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3>Support</h3>
+            <ul>
+              <li><a href="Help center.html">Help Center</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2023 Space Rocket Music. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // FAQ toggle functionality
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const item = question.parentElement;
+          const answer = item.querySelector(".faq-answer");
+
+          // Close all other FAQ items
+          document.querySelectorAll(".faq-item").forEach((otherItem) => {
+            if (otherItem !== item) {
+              otherItem.classList.remove("active");
+              otherItem.querySelector(".faq-answer").style.maxHeight = null;
+            }
+          });
+
+          // Toggle current item
+          item.classList.toggle("active");
+
+          if (item.classList.contains("active")) {
+            answer.style.maxHeight = answer.scrollHeight + "px";
+          } else {
+            answer.style.maxHeight = null;
+          }
+        });
+      });
+
+      // Search functionality (basic)
+      document.querySelector(".search-button").addEventListener("click", () => {
+        const searchTerm = document.querySelector(".search-box").value;
+        if (searchTerm.trim() !== "") {
+          alert(`Searching for: ${searchTerm}`);
+          // In a real implementation, this would trigger a search through the help articles
+        }
+      });
+
+      // Allow Enter key to trigger search
+      document
+        .querySelector(".search-box")
+        .addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            document.querySelector(".search-button").click();
+          }
+        });
+    </script>
+  </body>
+</html>

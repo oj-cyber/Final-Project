@@ -59,9 +59,7 @@
           </div>
         </div>
 
-        <div class="gallery-grid" id="gallery-grid">
-          <!-- Gallery items will be inserted here by JavaScript -->
-        </div>
+        <div class="gallery-grid" id="gallery-grid"></div>
 
         <div class="load-more">
           <button class="load-btn" id="load-more">Load More Images</button>
@@ -69,7 +67,6 @@
       </div>
     </section>
 
-    <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox">
       <button class="lightbox-close" id="lightbox-close">
         <i class="fas fa-times"></i>
@@ -302,7 +299,6 @@
         },
       ];
 
-      // Initialize gallery
       document.addEventListener("DOMContentLoaded", function () {
         const galleryGrid = document.getElementById("gallery-grid");
         const filterButtons = document.querySelectorAll(".filter-btn");
@@ -322,7 +318,6 @@
         let currentIndex = 0;
         let displayedItems = 8;
 
-        // Render gallery items
         function renderGallery(itemsToShow = displayedItems) {
           galleryGrid.innerHTML = "";
 
@@ -357,7 +352,6 @@
 
             galleryGrid.appendChild(galleryItem);
 
-            // Add click event to open lightbox
             galleryItem.addEventListener("click", function (e) {
               if (!e.target.classList.contains("action-btn")) {
                 openLightbox(index, filteredItems);
@@ -365,7 +359,6 @@
             });
           });
 
-          // Update load more button visibility
           if (itemsToShow >= filteredItems.length) {
             loadMoreBtn.style.display = "none";
           } else {

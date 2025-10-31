@@ -9,6 +9,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="FAQ.css" />
   </head>
   <body>
     <header>
@@ -570,13 +571,11 @@
     </footer>
 
     <script>
-      // FAQ toggle functionality
       document.querySelectorAll(".faq-question").forEach((question) => {
         question.addEventListener("click", () => {
           const item = question.parentElement;
           const answer = item.querySelector(".faq-answer");
 
-          // Toggle current item
           item.classList.toggle("active");
 
           if (item.classList.contains("active")) {
@@ -585,7 +584,6 @@
             answer.style.maxHeight = null;
           }
 
-          // Close other FAQ items in the same container
           const container = item.closest(".faq-container");
           container.querySelectorAll(".faq-item").forEach((otherItem) => {
             if (otherItem !== item && otherItem.classList.contains("active")) {
@@ -596,10 +594,8 @@
         });
       });
 
-      // Category filtering
       document.querySelectorAll(".category-btn").forEach((button) => {
         button.addEventListener("click", () => {
-          // Update active button
           document.querySelectorAll(".category-btn").forEach((btn) => {
             btn.classList.remove("active");
           });
@@ -614,7 +610,6 @@
               item.style.display = "block";
             });
           } else {
-            // Show only items from selected category
             allItems.forEach((item) => {
               if (item.getAttribute("data-category") === category) {
                 item.style.display = "block";
@@ -626,7 +621,6 @@
         });
       });
 
-      // Search functionality
       document
         .querySelector(".search-button")
         .addEventListener("click", performSearch);

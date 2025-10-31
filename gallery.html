@@ -134,14 +134,12 @@
     </footer>
 
     <script>
-      // Gallery data - 20 music-themed images with space aesthetic
       const galleryData = [
         {
           id: 1,
           title: "Cosmic Performance",
           category: "concerts",
-          image:
-            "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          image: "img/chris.avif",
           description:
             "A breathtaking concert under the stars with cosmic visuals.",
         },
@@ -149,72 +147,63 @@
           id: 2,
           title: "Nebula Album Cover",
           category: "albums",
-          image:
-            "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+          image: "img/mic.avif",
           description: "Album artwork featuring stunning nebula visuals.",
         },
         {
           id: 3,
           title: "Stellar Recording Session",
           category: "studio",
-          image:
-            "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          image: "img/work.avif",
           description: "Artist recording in a studio with cosmic ambiance.",
         },
         {
           id: 4,
           title: "Galactic DJ Set",
           category: "artists",
-          image:
-            "https://images.unsplash.com/photo-1571974599782-87624638275f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80",
+          image: "img/party.avif",
           description: "DJ performing with galactic-themed visual effects.",
         },
         {
           id: 5,
           title: "Space Symphony",
           category: "concerts",
-          image:
-            "https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          image: "img/wat you listen to.avif",
           description: "Orchestra performing a space-themed symphony.",
         },
         {
           id: 6,
           title: "Astral Guitarist",
           category: "artists",
-          image:
-            "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1305&q=80",
+          image: "img/work.avif",
           description: "Guitarist performing with cosmic backdrop.",
         },
         {
           id: 7,
           title: "Interstellar Vinyl",
           category: "albums",
-          image:
-            "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+          image: "img/guiter.avif",
           description: "Limited edition interstellar-themed vinyl record.",
         },
         {
           id: 8,
           title: "Cosmic Music Video",
           category: "studio",
-          image:
-            "https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          image: "img/album.avif",
           description: "Behind the scenes of a cosmic music video shoot.",
         },
         {
           id: 9,
           title: "Nebula Festival",
           category: "concerts",
-          image:
-            "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          image: "img/chris.avif",
           description: "Music festival with nebula-inspired stage design.",
         },
         {
           id: 10,
           title: "Starlight Singer",
           category: "artists",
-          image:
-            "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+          image: "img/mic.avif",
           description: "Vocalist performing under starlight ambiance.",
         },
         {
@@ -233,14 +222,7 @@
             "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
           description: "Sound engineer working in a space-themed studio.",
         },
-        {
-          id: 13,
-          title: "Cosmic Drum Solo",
-          category: "artists",
-          image:
-            "https://images.unsplash.com/photo-1519892300165-cb4742e1e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-          description: "Drummer performing an epic cosmic drum solo.",
-        },
+
         {
           id: 14,
           title: "Interstellar Concert",
@@ -249,14 +231,7 @@
             "https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
           description: "Massive interstellar-themed concert production.",
         },
-        {
-          id: 15,
-          title: "Astral Keyboardist",
-          category: "artists",
-          image:
-            "https://images.unsplash.com/photo-1571974599782-87624638275f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80",
-          description: "Keyboardist creating cosmic melodies.",
-        },
+
         {
           id: 16,
           title: "Nebula Single Art",

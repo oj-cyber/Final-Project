@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chill vibes</title>
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+        background-color: #f5f5f5;
+      }
+
+      .now-playing {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .player {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .album-art img {
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+        object-fit: cover;
+      }
+
+      .track-info {
+        flex: 1;
+      }
+
+      .track-title {
+        margin: 0;
+        font-size: 1.5em;
+        color: #333;
+      }
+
+      .track-artist {
+        margin: 5px 0;
+        color: #666;
+      }
+
+      .progress-container {
+        margin: 15px 0;
+      }
+
+      .progress-info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9em;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      .progress-bar {
+        width: 100%;
+        height: 6px;
+        background-color: #e0e0e0;
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .progress-fill {
+        height: 100%;
+        background-color: #ff6b6b;
+        border-radius: 3px;
+        width: 0%;
+        transition: width 0.1s ease;
+      }
+
+      .player-controls {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        margin-top: 15px;
+      }
+
+      .control-btn {
+        background: none;
+        border: none;
+        font-size: 1.2em;
+        color: #333;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+      }
+
+      .control-btn:hover {
+        background-color: #f0f0f0;
+      }
+
+      .control-btn.active {
+        color: #ff6b6b;
+      }
+
+      .play-btn {
+        background-color: #ff6b6b;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .play-btn:hover {
+        background-color: #ff5252;
+      }
+
+      .recently-played {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .section-title {
+        margin-top: 0;
+        color: #333;
+        border-bottom: 2px solid #ff6b6b;
+        padding-bottom: 10px;
+      }
+
+      .track-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .track-item {
+        display: flex;
+        align-items: center;
+        padding: 15px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+        border: 1px solid #eee;
+      }
+
+      .track-item:hover {
+        background-color: #f9f9f9;
+      }
+
+      .track-item.playing {
+        background-color: #fff0f0;
+        border-color: #ff6b6b;
+      }
+
+      .track-number {
+        width: 30px;
+        text-align: center;
+        color: #666;
+        font-weight: bold;
+      }
+
+      .track-details {
+        flex: 1;
+      }
+
+      .track-name {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+      }
+
+      .track-artist {
+        color: #666;
+        font-size: 0.9em;
+      }
+
+      .track-duration {
+        color: #666;
+        margin: 0 20px;
+      }
+
+      .track-actions {
+        display: flex;
+        gap: 10px;
+      }
+
+      .action-btn {
+        background: none;
+        border: none;
+        color: #333;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+      }
+
+      .action-btn:hover {
+        background-color: #f0f0f0;
+      }
+
+      .action-btn .fa-play {
+        color: #ff6b6b;
+      }
+
+      .action-btn .fa-pause {
+        color: #ff6b6b;
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="main-audio-player" preload="none"></audio>
+
+    <section class="now-playing">
+      <h2 class="section-title">Now Playing</h2>
+      <div class="player">
+        <div class="album-art">
+          <img src="img/album.avif" alt="Album Art" />
+        </div>
+        <div class="track-info">
+          <h3 class="track-title">Select a song</h3>
+          <p class="track-artist">Artist</p>
+          <div class="progress-container">
+            <div class="progress-info">
+              <span class="current-time">0:00</span>
+              <span class="total-time">0:00</span>
+            </div>
+            <div class="progress-bar" id="song-progress">
+              <div class="progress-fill" id="song-progress-fill"></div>
+            </div>
+          </div>
+          <div class="player-controls">
+            <button class="control-btn" id="shuffle-btn">
+              <i class="fas fa-random"></i>
+            </button>
+            <button class="control-btn" id="prev-btn">
+              <i class="fas fa-step-backward"></i>
+            </button>
+            <button class="control-btn play-btn" id="play-btn">
+              <i class="fas fa-play" id="play-icon"></i>
+            </button>
+            <button class="control-btn" id="next-btn">
+              <i class="fas fa-step-forward"></i>
+            </button>
+            <button class="control-btn" id="repeat-btn">
+              <i class="fas fa-redo"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="recently-played">
+      <h2 class="section-title">Chill Vibes Playlist</h2>
+      <div class="track-list">
+        <div
+          class="track-item"
+          data-audio="Music/Ruger_-_Snapchat_Soloplay.ng.mp3"
+        >
+          <div class="track-number">1</div>
+          <div class="track-details">
+            <div class="track-name">Snapchat</div>
+            <div class="track-artist">Rugar</div>
+          </div>
+          <div class="track-duration">3:26</div>
+          <div class="track-actions">
+            <button class="action-btn play-track-btn">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="track-item"
+          data-audio="Music/Harry_Styles_-_As_It_Was__Lyrics_(256k).mp3"
+        >
+          <div class="track-number">2</div>
+          <div class="track-details">
+            <div class="track-name">As It Was</div>
+            <div class="track-artist">Harry Styles</div>
+          </div>
+          <div class="track-duration">2:47</div>
+          <div class="track-actions">
+            <button class="action-btn play-track-btn">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="track-item"
+          data-audio="Music/Asake-Remember-(TrendyBeatz.com).mp3"
+        >
+          <div class="track-number">3</div>
+          <div class="track-details">
+            <div class="track-name">Remember</div>
+            <div class="track-artist">Asake</div>
+          </div>
+          <div class="track-duration">3:02</div>
+          <div class="track-actions">
+            <button class="action-btn play-track-btn">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="track-item"
+          data-audio="Music/Lukas_Graham_-_7_Years_[Official_Music_Video](256k).mp3"
+        >
+          <div class="track-number">4</div>
+          <div class="track-details">
+            <div class="track-name">7 years</div>
+            <div class="track-artist">Lukas_Graham</div>
+          </div>
+          <div class="track-duration">3:59</div>
+          <div class="track-actions">
+            <button class="action-btn play-track-btn">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        </div>
+        <div
+          class="track-item"
+          data-audio="Music/Asake-Remember-(TrendyBeatz.com).mp3"
+        >
+          <div class="track-number">5</div>
+          <div class="track-details">
+            <div class="track-name">Remember</div>
+            <div class="track-artist">Asake</div>
+          </div>
+          <div class="track-duration">3:02</div>
+          <div class="track-actions">
+            <button class="action-btn play-track-btn">
+              <i class="fas fa-play"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      $(document).ready(function () {
+        const audioPlayer = document.getElementById("main-audio-player");
+        let currentTrack = null;
+        let isPlaying = false;
+        let progressInterval;
+        let isShuffled = false;
+        let isRepeating = false;
+
+        function formatTime(seconds) {
+          if (isNaN(seconds)) return "0:00";
+          const mins = Math.floor(seconds / 60);
+          const secs = Math.floor(seconds % 60);
+          return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+        }
+
+        function updateProgressBar() {
+          if (audioPlayer.duration && !isNaN(audioPlayer.duration)) {
+            const progress =
+              (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            $("#song-progress-fill").css("width", progress + "%");
+            $(".current-time").text(formatTime(audioPlayer.currentTime));
+          }
+        }
+
+        function togglePlay() {
+          if (!currentTrack) {
+            const firstTrack = $(".track-item").first();
+            loadTrack(firstTrack);
+            return;
+          }
+
+          if (isPlaying) {
+            audioPlayer.pause();
+            $("#play-icon").removeClass("fa-pause").addClass("fa-play");
+            $(".play-track-btn i").removeClass("fa-pause").addClass("fa-play");
+            clearInterval(progressInterval);
+          } else {
+            audioPlayer.play().catch((e) => {
+              console.log("Audio play failed:", e);
+            });
+            $("#play-icon").removeClass("fa-play").addClass("fa-pause");
+            if (currentTrack) {
+              currentTrack
+                .find(".play-track-btn i")
+                .removeClass("fa-play")
+                .addClass("fa-pause");
+            }
+            progressInterval = setInterval(updateProgressBar, 1000);
+          }
+          isPlaying = !isPlaying;
+        }
+
+        function loadTrack(trackElement) {
+          const audioSrc = trackElement.data("audio");
+          const trackName = trackElement.find(".track-name").text();
+          const artistName = trackElement.find(".track-artist").text();
+
+          $(".play-track-btn i").removeClass("fa-pause").addClass("fa-play");
+
+          currentTrack = trackElement;
+          audioPlayer.src = audioSrc;
+
+          $(".track-title").text(trackName);
+          $(".track-artist").text(artistName);
+          $(".current-time").text("0:00");
+          $("#song-progress-fill").css("width", "0%");
+
+          trackElement
+            .find(".play-track-btn i")
+            .removeClass("fa-play")
+            .addClass("fa-pause");
+
+          audioPlayer.load();
+
+          if (!isPlaying) {
+            isPlaying = true;
+            $("#play-icon").removeClass("fa-play").addClass("fa-pause");
+          }
+
+          audioPlayer.play().catch((e) => {
+            console.log("Audio play failed:", e);
+          });
+
+          progressInterval = setInterval(updateProgressBar, 1000);
+        }
+
+        $("#play-btn").click(togglePlay);
+
+        $("#shuffle-btn").click(function () {
+          isShuffled = !isShuffled;
+          $(this).toggleClass("active", isShuffled);
+        });
+
+        $("#repeat-btn").click(function () {
+          isRepeating = !isRepeating;
+          $(this).toggleClass("active", isRepeating);
+        });
+
+        $("#next-btn").click(function () {
+          const nextTrack = currentTrack
+            ? currentTrack.next(".track-item")
+            : $(".track-item").first();
+          if (nextTrack.length) {
+            loadTrack(nextTrack);
+          } else {
+            loadTrack($(".track-item").first());
+          }
+        });
+
+        $("#prev-btn").click(function () {
+          const prevTrack = currentTrack
+            ? currentTrack.prev(".track-item")
+            : $(".track-item").last();
+          if (prevTrack.length) {
+            loadTrack(prevTrack);
+          } else {
+            loadTrack($(".track-item").last());
+          }
+        });
+
+        $(".play-track-btn").click(function () {
+          const trackItem = $(this).closest(".track-item");
+
+          if (currentTrack && currentTrack[0] === trackItem[0] && isPlaying) {
+            togglePlay();
+          } else {
+            loadTrack(trackItem);
+          }
+        });
+
+        audioPlayer.addEventListener("loadedmetadata", function () {
+          $(".total-time").text(formatTime(audioPlayer.duration));
+        });
+
+        audioPlayer.addEventListener("ended", function () {
+          if (isRepeating) {
+            audioPlayer.currentTime = 0;
+            audioPlayer.play();
+          } else {
+            $("#next-btn").click();
+          }
+        });
+
+        audioPlayer.addEventListener("timeupdate", function () {
+          updateProgressBar();
+        });
+
+        $("#song-progress").click(function (e) {
+          if (!audioPlayer.duration || isNaN(audioPlayer.duration)) return;
+
+          const progressBar = $(this);
+          const clickPosition = e.pageX - progressBar.offset().left;
+          const progressBarWidth = progressBar.width();
+          const percentage = (clickPosition / progressBarWidth) * 100;
+
+          audioPlayer.currentTime = (percentage / 100) * audioPlayer.duration;
+          updateProgressBar();
+        });
+
+        $(".current-time").text("0:00");
+        $(".total-time").text("0:00");
+      });
+    </script>
+  </body>
+</html>

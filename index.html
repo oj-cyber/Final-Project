@@ -94,7 +94,7 @@
                 <i class="fas fa-chevron-down"></i>
               </a>
               <div class="dropdown-content">
-                <a href="">Chill Vibes</a>
+                <a href="Music">Chill Vibes</a>
                 <a href="">Workout Energy</a>
                 <a href="">Focus Flow</a>
                 <a href="">Party Starters</a>
@@ -122,7 +122,9 @@
             Stream over 80 million songs, discover new artists, and create
             personalized playlists. All the music you love, all in one place.
           </p>
-          <button class="btn btn-signup">Start Listening Now</button>
+          <button class="btn btn-signup" id="start-listening-btn">
+            Start Listening Now
+          </button>
         </div>
         <div class="hero-image">
           <img src="img/2nd.jpg" alt="Music Listening" />
@@ -130,20 +132,20 @@
       </section>
 
       <section class="now-playing">
-        <h2 class="section-title">Now Playing</h2>
+        <a href="gallery.html"><h2 class="section-title">Now Playing</h2></a>
         <div class="player">
           <div class="album-art">
             <img src="img/album.avif" alt="Album Art" />
           </div>
 
           <div class="track-info">
-            <h3 class="track-title">Blinding Lights</h3>
-            <p class="track-artist">The Weeknd</p>
+            <h3 class="track-title">What_ou_Know Bout Love</h3>
+            <p class="track-artist">Pop Smoke</p>
 
             <div class="progress-container">
               <div class="progress-info">
-                <span class="current-time">2:15</span>
-                <span class="total-time">3:45</span>
+                <span class="current-time">0:00</span>
+                <span class="total-time">2:40</span>
               </div>
               <div class="progress-bar" id="song-progress">
                 <div class="progress-fill" id="song-progress-fill"></div>
@@ -190,7 +192,7 @@
             </div>
             <div class="playlist-info">
               <h3 class="playlist-name">Workout Energy</h3>
-              <p class="playlist-count">5songs</p>
+              <p class="playlist-count">5 songs</p>
             </div>
           </div>
 
@@ -219,90 +221,209 @@
       <section class="recently-played">
         <h2 class="section-title">Recently Played</h2>
         <div class="track-list">
-          <div class="track-item">
+          <div
+            class="track-item"
+            data-audio="Music/Pop_Smoke_-_What_You_Know_Bout_Love(256k).mp3"
+          >
             <div class="track-number">1</div>
             <div class="track-details">
-              <div class="track-name">
-                <audio src="Music/Harry_Styles_-_As_It_Was__Lyrics_(256k).mp3">
-                  As It Was
-                </audio>
-              </div>
+              <div class="track-name">What_You_Know_Bout_Love</div>
+              <div class="track-artist">Pop Smoke</div>
+            </div>
+            <div class="track-duration">2:40</div>
+            <div class="track-actions">
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="track-item"
+            data-audio="Music/Harry_Styles_-_As_It_Was__Lyrics_(256k).mp3"
+          >
+            <div class="track-number">2</div>
+            <div class="track-details">
+              <div class="track-name">As It Was</div>
               <div class="track-artist">Harry Styles</div>
             </div>
             <div class="track-duration">2:47</div>
             <div class="track-actions">
-              <button class="action-btn"><i class="far fa-heart"></i></button>
-            </div>
-          </div>
-
-          <div class="track-item">
-            <div class="track-number">2</div>
-            <div class="track-details">
-              <div class="track-name">
-                <audio src="Music/Miley_Cyrus_-_Flowers__Lyrics_(256k).mp3">
-                  Flowers
-                </audio>
-              </div>
-              <div class="track-artist">Miley Cyrus</div>
-            </div>
-            <div class="track-duration">3:20</div>
-            <div class="track-actions">
-              <button class="action-btn"><i class="far fa-heart"></i></button>
-            </div>
-          </div>
-
-          <div class="track-item">
-            <div class="track-number">3</div>
-            <div class="track-details">
-              <div class="track-name">
-                <audio src="Music/@sza_-_Kill_Bill__Lyrics_(256k).mp3">
-                  Kill Bill
-                </audio>
-              </div>
-              <div class="track-artist">SZA</div>
-            </div>
-            <div class="track-duration">2:33</div>
-            <div class="track-actions">
-              <button class="action-btn">
-                <i class="fas fa-heart" style="color: #ff6b6b"></i>
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
               </button>
             </div>
           </div>
-
-          <div class="track-item">
-            <div class="track-number">4</div>
+          <div
+            class="track-item"
+            data-audio="Music/Asake-Remember-(TrendyBeatz.com).mp3"
+          >
+            <div class="track-number">3</div>
             <div class="track-details">
-              <div class="track-name">
-                <audio
-                  src="Music/Asake-Ft-Olamide-Amapiano-(TrendyBeatz.com).mp3"
-                >
-                  Amapiano
-                </audio>
-              </div>
-              <div class="track-artist">Asake-Ft-Olamide-Amapiano</div>
+              <div class="track-name">Remember</div>
+              <div class="track-artist">Asake</div>
             </div>
-            <div class="track-duration">3:41</div>
+            <div class="track-duration">3:02</div>
             <div class="track-actions">
-              <button class="action-btn"><i class="far fa-heart"></i></button>
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
+              </button>
             </div>
           </div>
-
-          <div class="track-item">
+          <div
+            class="track-item"
+            data-audio="Music/Rod_Wave_-_Rags_2_Riches_Ft._Lil_Baby___ATR_SonSon__Official_Audio_(256k).mp3"
+          >
+            <div class="track-number">4</div>
+            <div class="track-details">
+              <div class="track-name">rags 2 riches</div>
+              <div class="track-artist">Lil_Baby ft Rod_Wave</div>
+            </div>
+            <div class="track-duration">3:51</div>
+            <div class="track-actions">
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+          <div class="track-item" data-audio="Music/Davido_-_Feel.mp3">
             <div class="track-number">5</div>
             <div class="track-details">
-              <div class="track-name">
-                <audio
-                  src="Music/Asake-Ft-Olamide-Amapiano-(TrendyBeatz.com).mp3"
-                >
-                  Anti-Hero</audio
-                ><
-              </div>
-              <div class="track-artist">Taylor Swift</div>
+              <div class="track-name">Feel</div>
+              <div class="track-artist">Davido</div>
             </div>
-            <div class="track-duration">3:20</div>
+            <div class="track-duration">2:34</div>
             <div class="track-actions">
-              <button class="action-btn">
-                <i class="fas fa-heart" style="color: #ff6b6b"></i>
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="track-item"
+            data-audio="Music/Bebe_Cool_-_Cheque__Lyrics__ft_Joshua_Baraka(256k).mp3"
+          >
+            <div class="track-number">6</div>
+            <div class="track-details">
+              <div class="track-name">Cheque</div>
+              <div class="track-artist">Bebe_Cool ft_Joshua_Baraka</div>
+            </div>
+            <div class="track-duration">1:44</div>
+            <div class="track-actions">
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="track-item"
+            data-audio="Music/Kendrick_Lamar_-_Not_Like_Us(256k).mp3"
+          >
+            <div class="track-number">7</div>
+            <div class="track-details">
+              <div class="track-name">Not like us</div>
+              <div class="track-artist">Kendrick_Lamar</div>
+            </div>
+            <div class="track-duration">5:54</div>
+            <div class="track-actions">
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="track-item"
+            data-audio="Music/Mozelo_Kidz__ft__John_Blaq_-__My_Life__[Official_Music_Video](256k).mp3"
+          >
+            <div class="track-number">8</div>
+            <div class="track-details">
+              <div class="track-name">My life</div>
+              <div class="track-artist">Mozelo_Kidz_ft_John_Blaq_</div>
+            </div>
+            <div class="track-duration">3:43</div>
+            <div class="track-actions">
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="track-item"
+            data-audio="Music/pheelz_finesse_ft._buju_lyrics_mp3_63650.mp3"
+          >
+            <div class="track-number">9</div>
+            <div class="track-details">
+              <div class="track-name">Finesse</div>
+              <div class="track-artist">pheelz ft buju</div>
+            </div>
+            <div class="track-duration">2:35</div>
+            <div class="track-actions">
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="track-item"
+            data-audio="Music/ruger_bnxn_bae_bae_official_audio_mp3_64296.mp3"
+          >
+            <div class="track-number">10</div>
+            <div class="track-details">
+              <div class="track-name">Bae bae</div>
+              <div class="track-artist">ruger ft bnxn</div>
+            </div>
+            <div class="track-duration">2:35</div>
+            <div class="track-actions">
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+          <div
+            class="track-item"
+            data-audio="Music/Juice_WRLD_-_Armed___Dangerous__Official_Music_Video_(256k).mp3"
+          >
+            <div class="track-number">11</div>
+            <div class="track-details">
+              <div class="track-name">Armed and dangerous</div>
+              <div class="track-artist">Juice_WRLD_</div>
+            </div>
+            <div class="track-duration">3:13</div>
+            <div class="track-actions">
+              <button class="action-btn play-track-btn">
+                <i class="fas fa-play"></i>
+              </button>
+              <button class="action-btn like-btn">
+                <i class="far fa-heart"></i>
               </button>
             </div>
           </div>
@@ -320,6 +441,8 @@
         <p>&copy; 2025 Space Rocket Music. All rights reserved.</p>
       </footer>
     </div>
+
+    <audio id="main-audio-player" preload="none"></audio>
 
     <script>
       $(document).ready(function () {
@@ -436,51 +559,79 @@
           $(this).find("i").toggleClass("fa-chevron-down fa-chevron-up");
         });
 
+        const audioPlayer = document.getElementById("main-audio-player");
+        let currentTrack = null;
         let isPlaying = false;
+        let currentProgress = 0;
         let progressInterval;
-        let currentProgress = 35;
         let isShuffled = false;
         let isRepeating = false;
 
-        function updateProgressBar() {
-          $("#song-progress-fill").css("width", currentProgress + "%");
+        function formatTime(seconds) {
+          const mins = Math.floor(seconds / 60);
+          const secs = Math.floor(seconds % 60);
+          return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+        }
 
-          const totalSeconds = 225;
-          const currentSeconds = Math.floor(
-            (currentProgress / 100) * totalSeconds
-          );
-          const minutes = Math.floor(currentSeconds / 60);
-          const seconds = currentSeconds % 60;
-          $(".current-time").text(
-            `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`
-          );
+        function updateProgressBar() {
+          if (audioPlayer.duration) {
+            const progress =
+              (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            $("#song-progress-fill").css("width", progress + "%");
+            $(".current-time").text(formatTime(audioPlayer.currentTime));
+          }
         }
 
         function togglePlay() {
-          isPlaying = !isPlaying;
-          const playIcon = $("#play-icon");
+          if (!currentTrack) {
+            const firstTrack = $(".track-item").first();
+            loadTrack(firstTrack);
+            return;
+          }
 
           if (isPlaying) {
-            playIcon.removeClass("fa-play").addClass("fa-pause");
-            progressInterval = setInterval(function () {
-              if (currentProgress < 100) {
-                currentProgress += 0.5;
-                updateProgressBar();
-              } else {
-                clearInterval(progressInterval);
-                if (isRepeating) {
-                  currentProgress = 0;
-                  updateProgressBar();
-                  togglePlay();
-                } else {
-                  isPlaying = false;
-                  playIcon.removeClass("fa-pause").addClass("fa-play");
-                }
-              }
-            }, 1000);
-          } else {
-            playIcon.removeClass("fa-pause").addClass("fa-play");
+            audioPlayer.pause();
+            $("#play-icon").removeClass("fa-pause").addClass("fa-play");
             clearInterval(progressInterval);
+          } else {
+            audioPlayer.play().catch((e) => {
+              console.log("Audio play failed:", e);
+            });
+            $("#play-icon").removeClass("fa-play").addClass("fa-pause");
+            progressInterval = setInterval(updateProgressBar, 1000);
+          }
+          isPlaying = !isPlaying;
+        }
+
+        function loadTrack(trackElement) {
+          const audioSrc = trackElement.data("audio");
+          const trackName = trackElement.find(".track-name").text();
+          const artistName = trackElement.find(".track-artist").text();
+
+          currentTrack = trackElement;
+          audioPlayer.src = audioSrc;
+
+          $(".track-title").text(trackName);
+          $(".track-artist").text(artistName);
+          $(".current-time").text("0:00");
+          $("#song-progress-fill").css("width", "0%");
+
+          $(".play-track-btn")
+            .find("i")
+            .removeClass("fa-pause")
+            .addClass("fa-play");
+
+          trackElement
+            .find(".play-track-btn i")
+            .removeClass("fa-play")
+            .addClass("fa-pause");
+
+          if (!isPlaying) {
+            togglePlay();
+          } else {
+            audioPlayer.play().catch((e) => {
+              console.log("Audio play failed:", e);
+            });
           }
         }
 
@@ -496,7 +647,41 @@
           $(this).toggleClass("active", isRepeating);
         });
 
-        $(".action-btn").click(function () {
+        $("#next-btn").click(function () {
+          const nextTrack = currentTrack
+            ? currentTrack.next(".track-item")
+            : $(".track-item").first();
+          if (nextTrack.length) {
+            loadTrack(nextTrack);
+          }
+        });
+
+        $("#prev-btn").click(function () {
+          const prevTrack = currentTrack
+            ? currentTrack.prev(".track-item")
+            : $(".track-item").last();
+          if (prevTrack.length) {
+            loadTrack(prevTrack);
+          }
+        });
+
+        $(".play-track-btn").click(function () {
+          const trackItem = $(this).closest(".track-item");
+
+          if (currentTrack && currentTrack[0] === trackItem[0]) {
+            togglePlay();
+            $(this).find("i").toggleClass("fa-play fa-pause");
+          } else {
+            loadTrack(trackItem);
+          }
+        });
+
+        $("#start-listening-btn").click(function () {
+          const firstTrack = $(".track-item").first();
+          loadTrack(firstTrack);
+        });
+
+        $(".like-btn").click(function () {
           const heartIcon = $(this).find("i");
           if (heartIcon.hasClass("far")) {
             heartIcon
@@ -506,6 +691,31 @@
           } else {
             heartIcon.removeClass("fas").addClass("far").css("color", "");
           }
+        });
+
+        audioPlayer.addEventListener("loadedmetadata", function () {
+          $(".total-time").text(formatTime(audioPlayer.duration));
+        });
+
+        audioPlayer.addEventListener("ended", function () {
+          if (isRepeating) {
+            audioPlayer.currentTime = 0;
+            audioPlayer.play();
+          } else {
+            $("#next-btn").click();
+          }
+        });
+
+        $("#song-progress").click(function (e) {
+          if (!audioPlayer.duration) return;
+
+          const progressBar = $(this);
+          const clickPosition = e.pageX - progressBar.offset().left;
+          const progressBarWidth = progressBar.width();
+          const percentage = (clickPosition / progressBarWidth) * 100;
+
+          audioPlayer.currentTime = (percentage / 100) * audioPlayer.duration;
+          updateProgressBar();
         });
 
         updateProgressBar();

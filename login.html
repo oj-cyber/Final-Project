@@ -155,7 +155,7 @@
           </div>
         </div>
         <div class="copyright">
-          <p>&copy; 2023 Space Rocket Music. All rights reserved.</p>
+          <p>&copy; 2025 Space Rocket Music. All rights reserved.</p>
         </div>
       </div>
     </footer>
@@ -203,18 +203,17 @@
           submitButton.textContent = "Signing In...";
           submitButton.disabled = true;
 
-          // Simulate API call
+  
           setTimeout(() => {
             alert("Login successful! (This is a demo)");
             submitButton.textContent = originalText;
             submitButton.disabled = false;
 
-            // In a real application, you would redirect the user
-            // window.location.href = '/dashboard';
+          
           }, 1500);
         });
 
-      // Social login buttons
+     
       document.querySelectorAll(".social-button").forEach((button) => {
         button.addEventListener("click", function () {
           const provider = this.querySelector("span").textContent;

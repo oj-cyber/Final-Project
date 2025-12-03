@@ -50,7 +50,6 @@
   font-weight: 800;
 }
 
-/* Header Styles */
 header {
   display: flex;
   justify-content: space-between;
@@ -64,7 +63,6 @@ header {
   border-bottom: 1px solid rgba(26, 31, 75, 0.8);
 }
 
-/* Rest of your existing styles */
 :root {
   --primary: #0a0e2a;
   --secondary: #1a1f4b;
@@ -181,7 +179,6 @@ nav a:hover::after {
   cursor: pointer;
 }
 
-/* Hero Section */
 .hero {
   display: flex;
   align-items: center;
@@ -222,7 +219,6 @@ nav a:hover::after {
   display: block;
 }
 
-/* Now Playing Section */
 .now-playing {
   margin: 60px 0;
 }
@@ -337,7 +333,6 @@ nav a:hover::after {
   transform: scale(1.1);
 }
 
-/* Playlists Section */
 .playlists {
   margin: 60px 0;
 }
@@ -392,7 +387,6 @@ nav a:hover::after {
   font-size: 0.9rem;
 }
 
-/* Recently Played Section */
 .recently-played {
   margin: 60px 0;
 }
@@ -462,7 +456,6 @@ nav a:hover::after {
   color: var(--accent-light);
 }
 
-/* Footer */
 footer {
   text-align: center;
   padding: 40px 0;
@@ -488,7 +481,6 @@ footer {
   color: var(--accent-light);
 }
 
-/* Marquee */
 .pace {
   background: linear-gradient(to right, var(--accent), var(--accent-light));
   color: white;

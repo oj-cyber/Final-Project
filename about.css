@@ -398,7 +398,7 @@ footer {
   }
 
   .nav-links {
-    display: none;
+    display: hidden;
     width: 100%;
     flex-direction: column;
     margin-top: 20px;

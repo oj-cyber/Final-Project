@@ -350,7 +350,7 @@
           }
         });
 
-      // Form submission
+      
       document
         .getElementById("signup-form")
         .addEventListener("submit", function (e) {
@@ -365,7 +365,7 @@
             document.getElementById("confirm-password").value;
           const terms = document.getElementById("terms").checked;
 
-          // Basic validation
+         
           if (
             !firstName ||
             !lastName ||
@@ -388,7 +388,7 @@
             return;
           }
 
-          // In a real application, you would send this data to a server
+         
           console.log("Signup attempt:", {
             firstName,
             lastName,
@@ -397,24 +397,22 @@
             password,
           });
 
-          // Show loading state
+          
           const submitButton = this.querySelector(".signup-button");
           const originalText = submitButton.textContent;
           submitButton.textContent = "Creating Account...";
           submitButton.disabled = true;
 
-          // Simulate API call
+          
           setTimeout(() => {
             alert("Account created successfully! (This is a demo)");
             submitButton.textContent = originalText;
             submitButton.disabled = false;
 
-            // In a real application, you would redirect the user
-            // window.location.href = '/dashboard';
+         
           }, 1500);
         });
 
-      // Social signup buttons
       document.querySelectorAll(".social-button").forEach((button) => {
         button.addEventListener("click", function () {
           const provider = this.querySelector("span").textContent;

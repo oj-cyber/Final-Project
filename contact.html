@@ -114,7 +114,6 @@
       </div>
     </div>
 
-    <!-- Footer -->
     <footer>
       <div class="footer-container">
         <div class="footer-column">
@@ -169,7 +168,6 @@
           }, index * 200);
         });
 
-        // Form submission
         const form = document.getElementById("contactForm");
         const submitBtn = document.getElementById("submitBtn");
 
@@ -211,7 +209,6 @@
           }, 2000);
         });
 
-        // Social media links
         document.querySelectorAll(".social-icons a").forEach((link) => {
           link.addEventListener("click", function (e) {
             e.preventDefault();
@@ -225,7 +222,6 @@
           });
         });
 
-        // Contact info items
         document.querySelectorAll(".info-item").forEach((item) => {
           item.addEventListener("click", function () {
             const text = this.querySelector("p").textContent;

@@ -286,7 +286,6 @@ nav a:hover::after {
   transform: scale(1.1);
 }
 
-/* Lightbox Modal */
 .lightbox {
   display: none;
   position: fixed;

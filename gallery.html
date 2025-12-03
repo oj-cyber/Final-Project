@@ -324,7 +324,6 @@
           }
         }
 
-        // Open lightbox
         function openLightbox(index, items) {
           currentIndex = index;
           const item = items[index];
@@ -338,13 +337,11 @@
           document.body.style.overflow = "hidden";
         }
 
-        // Close lightbox
         function closeLightbox() {
           lightbox.classList.remove("active");
           document.body.style.overflow = "auto";
         }
 
-        // Navigate lightbox
         function navigateLightbox(direction, items) {
           if (direction === "next") {
             currentIndex = (currentIndex + 1) % items.length;
@@ -359,7 +356,6 @@
           lightboxDesc.textContent = item.description;
         }
 
-        // Filter gallery
         filterButtons.forEach((button) => {
           button.addEventListener("click", function () {
             const filter = this.getAttribute("data-filter");
@@ -373,7 +369,6 @@
           });
         });
 
-        // Change view
         viewButtons.forEach((button) => {
           button.addEventListener("click", function () {
             const view = this.getAttribute("data-view");
@@ -393,13 +388,11 @@
           });
         });
 
-        // Load more items
         loadMoreBtn.addEventListener("click", function () {
           displayedItems += 4;
           renderGallery(displayedItems);
         });
 
-        // Lightbox events
         lightboxClose.addEventListener("click", closeLightbox);
 
         lightbox.addEventListener("click", function (e) {
@@ -424,7 +417,6 @@
           navigateLightbox("next", filteredItems);
         });
 
-        // Keyboard navigation for lightbox
         document.addEventListener("keydown", function (e) {
           if (!lightbox.classList.contains("active")) return;
 
@@ -442,7 +434,6 @@
           }
         });
 
-        // Initial render
         renderGallery();
       });
     </script>

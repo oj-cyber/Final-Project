@@ -481,7 +481,6 @@ footer {
   color: var(--accent-light);
 }
 
-/* Marquee */
 .pace {
   background: linear-gradient(to right, var(--accent), var(--accent-light));
   color: white;

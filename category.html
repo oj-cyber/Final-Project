@@ -1,737 +1,644 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Categories | Space Rocket Music</title>
-    <link rel="stylesheet" href="category.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-  </head>
-  <body>
-    <header>
-      <div class="container">
-        <div class="header-content">
-          <a href="index.html" class="logo">
-            <i class="fas fa-rocket logo-icon"></i>
-            Space Rocket Music
-          </a>
-          <nav>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="FAQ.html">FAQ</a></li>
-              <li><a href="category.html">Categories</a></li>
-            </ul>
-          </nav>
+<section class="hero">
+  <div class="container">
+    <h1>Music Categories</h1>
+    <p>Explore our universe of music organized by genre, mood, and theme</p>
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-box"
+        placeholder="Search categories..."
+      />
+      <button class="search-button">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="content">
+  <div class="container">
+    <div class="dropdown-section">
+      <div class="dropdown-container">
+        <div class="dropdown-header" id="genre-dropdown">
+          <span>Select Genre</span>
+          <i class="fas fa-chevron-down dropdown-icon"></i>
+        </div>
+        <div class="dropdown-menu" id="genre-menu">
+          <div class="dropdown-item" data-value="all">All Genres</div>
+          <div class="dropdown-item" data-value="electronic">
+            Electronic & EDM
+          </div>
+          <div class="dropdown-item" data-value="rock">Rock & Alternative</div>
+          <div class="dropdown-item" data-value="hiphop">Hip Hop & Rap</div>
+          <div class="dropdown-item" data-value="jazz">Jazz & Blues</div>
+          <div class="dropdown-item" data-value="classical">
+            Classical & Orchestral
+          </div>
+          <div class="dropdown-item" data-value="pop">Pop & Mainstream</div>
+          <div class="dropdown-item" data-value="country">Country & Folk</div>
+          <div class="dropdown-item" data-value="latin">Latin & World</div>
         </div>
       </div>
-    </header>
 
-    <section class="hero">
-      <div class="container">
-        <h1>Music Categories</h1>
-        <p>Explore our universe of music organized by genre, mood, and theme</p>
-        <div class="search-container">
-          <input
-            type="text"
-            class="search-box"
-            placeholder="Search categories..."
-          />
-          <button class="search-button">
-            <i class="fas fa-search"></i> Search
-          </button>
+      <div class="dropdown-container">
+        <div class="dropdown-header" id="mood-dropdown">
+          <span>Select Mood</span>
+          <i class="fas fa-chevron-down dropdown-icon"></i>
         </div>
-      </div>
-    </section>
-
-    <section class="content">
-      <div class="container">
-        <div class="dropdown-section">
-          <div class="dropdown-container">
-            <div class="dropdown-header" id="genre-dropdown">
-              <span>Select Genre</span>
-              <i class="fas fa-chevron-down dropdown-icon"></i>
-            </div>
-            <div class="dropdown-menu" id="genre-menu">
-              <div class="dropdown-item" data-value="all">All Genres</div>
-              <div class="dropdown-item" data-value="electronic">
-                Electronic & EDM
-              </div>
-              <div class="dropdown-item" data-value="rock">
-                Rock & Alternative
-              </div>
-              <div class="dropdown-item" data-value="hiphop">Hip Hop & Rap</div>
-              <div class="dropdown-item" data-value="jazz">Jazz & Blues</div>
-              <div class="dropdown-item" data-value="classical">
-                Classical & Orchestral
-              </div>
-              <div class="dropdown-item" data-value="pop">Pop & Mainstream</div>
-              <div class="dropdown-item" data-value="country">
-                Country & Folk
-              </div>
-              <div class="dropdown-item" data-value="latin">Latin & World</div>
-            </div>
+        <div class="dropdown-menu" id="mood-menu">
+          <div class="dropdown-item" data-value="all">All Moods</div>
+          <div class="dropdown-item" data-value="chill">Chill & Relax</div>
+          <div class="dropdown-item" data-value="energy">Energy & Focus</div>
+          <div class="dropdown-item" data-value="party">
+            Party & Celebration
           </div>
-
-          <div class="dropdown-container">
-            <div class="dropdown-header" id="mood-dropdown">
-              <span>Select Mood</span>
-              <i class="fas fa-chevron-down dropdown-icon"></i>
-            </div>
-            <div class="dropdown-menu" id="mood-menu">
-              <div class="dropdown-item" data-value="all">All Moods</div>
-              <div class="dropdown-item" data-value="chill">Chill & Relax</div>
-              <div class="dropdown-item" data-value="energy">
-                Energy & Focus
-              </div>
-              <div class="dropdown-item" data-value="party">
-                Party & Celebration
-              </div>
-              <div class="dropdown-item" data-value="romantic">
-                Romantic & Love
-              </div>
-              <div class="dropdown-item" data-value="melancholy">
-                Melancholy & Reflective
-              </div>
-              <div class="dropdown-item" data-value="adventure">
-                Adventure & Epic
-              </div>
-            </div>
+          <div class="dropdown-item" data-value="romantic">Romantic & Love</div>
+          <div class="dropdown-item" data-value="melancholy">
+            Melancholy & Reflective
           </div>
-
-          <div class="dropdown-container">
-            <div class="dropdown-header" id="theme-dropdown">
-              <span>Select Theme</span>
-              <i class="fas fa-chevron-down dropdown-icon"></i>
-            </div>
-            <div class="dropdown-menu" id="theme-menu">
-              <div class="dropdown-item" data-value="all">All Themes</div>
-              <div class="dropdown-item" data-value="workout">
-                Workout & Exercise
-              </div>
-              <div class="dropdown-item" data-value="study">
-                Study & Concentration
-              </div>
-              <div class="dropdown-item" data-value="sleep">
-                Sleep & Meditation
-              </div>
-              <div class="dropdown-item" data-value="roadtrip">
-                Road Trip & Travel
-              </div>
-              <div class="dropdown-item" data-value="cosmic">
-                Cosmic & Space
-              </div>
-              <div class="dropdown-item" data-value="retro">
-                Retro & Vintage
-              </div>
-            </div>
-          </div>
-
-          <div class="dropdown-container">
-            <div class="dropdown-header" id="decade-dropdown">
-              <span>Select Decade</span>
-              <i class="fas fa-chevron-down dropdown-icon"></i>
-            </div>
-            <div class="dropdown-menu" id="decade-menu">
-              <div class="dropdown-item" data-value="all">All Decades</div>
-              <div class="dropdown-item" data-value="2020s">2020s</div>
-              <div class="dropdown-item" data-value="2010s">2010s</div>
-              <div class="dropdown-item" data-value="2000s">2000s</div>
-              <div class="dropdown-item" data-value="1990s">1990s</div>
-              <div class="dropdown-item" data-value="1980s">1980s</div>
-              <div class="dropdown-item" data-value="1970s">1970s</div>
-              <div class="dropdown-item" data-value="1960s">1960s</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="selected-filters" id="selected-filters">
-          <!-- Selected filters will appear here -->
-        </div>
-
-        <div class="category-section">
-          <div class="section-header">
-            <h2 class="section-title">
-              <i class="fas fa-compass"></i> Browse Categories
-            </h2>
-            <div>
-              <span id="results-count">Showing 12 categories</span>
-            </div>
-          </div>
-
-          <div class="categories-grid" id="categories-grid"></div>
-
-          <div class="no-results" id="no-results" style="display: none">
-            <i class="fas fa-search"></i>
-            <h3>No categories found</h3>
-            <p>Try adjusting your filters or search terms</p>
+          <div class="dropdown-item" data-value="adventure">
+            Adventure & Epic
           </div>
         </div>
       </div>
-    </section>
 
-    <footer>
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-column">
-            <h3>Space Rocket Music</h3>
-            <p>Your destination for out-of-this-world music experiences.</p>
-            <div class="social-links">
-              <a href=""><i class="fab fa-facebook-f"></i></a>
-              <a href=""><i class="fab fa-twitter"></i></a>
-              <a href=""><i class="fab fa-instagram"></i></a>
-              <a href=""><i class="fab fa-spotify"></i></a>
-            </div>
-          </div>
-          <div class="footer-column">
-            <h3>Quick Links</h3>
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About US</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="FAQ.html">FAQ</a></li>
-              <li><a href="category.html">Categories</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>Legal</h3>
-            <ul>
-              <li><a href="TermsOfService.html">Terms of Service</a></li>
-              <li><a href="privacy.html">Privacy Policy</a></li>
-            </ul>
-          </div>
-          <div class="footer-column">
-            <h3>Support</h3>
-            <ul>
-              <li><a href="Help center.html">Help Center</a></li>
-              <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-          </div>
+      <div class="dropdown-container">
+        <div class="dropdown-header" id="theme-dropdown">
+          <span>Select Theme</span>
+          <i class="fas fa-chevron-down dropdown-icon"></i>
         </div>
-        <div class="copyright">
-          <p>&copy; 2025 Space Rocket Music. All rights reserved.</p>
+        <div class="dropdown-menu" id="theme-menu">
+          <div class="dropdown-item" data-value="all">All Themes</div>
+          <div class="dropdown-item" data-value="workout">
+            Workout & Exercise
+          </div>
+          <div class="dropdown-item" data-value="study">
+            Study & Concentration
+          </div>
+          <div class="dropdown-item" data-value="sleep">Sleep & Meditation</div>
+          <div class="dropdown-item" data-value="roadtrip">
+            Road Trip & Travel
+          </div>
+          <div class="dropdown-item" data-value="cosmic">Cosmic & Space</div>
+          <div class="dropdown-item" data-value="retro">Retro & Vintage</div>
         </div>
       </div>
-    </footer>
 
-    <script>
-      const categoriesData = [
-        {
-          id: 1,
-          name: "Electronic & EDM",
-          icon: "fa-satellite-dish",
-          image:
-            "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-          description:
-            "From ambient synthwave to high-energy dance beats. Explore the electronic universe.",
-          tracks: 2450,
-          likes: 18500,
-          tags: ["House", "Techno", "Dubstep"],
-          genre: "electronic",
-          mood: "energy",
-          theme: "cosmic",
-          decade: "2020s",
-        },
-        {
-          id: 2,
-          name: "Rock & Alternative",
-          icon: "fa-guitar",
-          image:
-            "https://images.unsplash.com/photo-1519892300165-cb4742e1e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-          description:
-            "From classic rock anthems to modern alternative sounds. Guitar-driven energy.",
-          tracks: 3120,
-          likes: 24200,
-          tags: ["Classic Rock", "Indie", "Punk"],
-          genre: "rock",
-          mood: "energy",
-          theme: "adventure",
-          decade: "all",
-        },
-        {
-          id: 3,
-          name: "Hip Hop & Rap",
-          icon: "fa-microphone",
-          image:
-            "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1305&q=80",
-          description:
-            "From old school beats to modern trap. Urban sounds and lyrical flow.",
-          tracks: 2890,
-          likes: 22700,
-          tags: ["Trap", "Old School", "R&B"],
-          genre: "hiphop",
-          mood: "energy",
-          theme: "urban",
-          decade: "2020s",
-        },
-        {
-          id: 4,
-          name: "Chill & Relax",
-          icon: "fa-couch",
-          image:
-            "https://images.unsplash.com/photo-1571974599782-87624638275f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80",
-          description:
-            "Ambient sounds and mellow beats to help you unwind and relax.",
-          tracks: 1840,
-          likes: 15300,
-          tags: ["Ambient", "Lo-fi", "Downtempo"],
-          genre: "electronic",
-          mood: "chill",
-          theme: "sleep",
-          decade: "all",
-        },
-        {
-          id: 5,
-          name: "Energy & Focus",
-          icon: "fa-bolt",
-          image:
-            "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-          description:
-            "Upbeat tracks to boost your energy and enhance concentration.",
-          tracks: 2150,
-          likes: 17800,
-          tags: ["Upbeat", "Productive", "Motivational"],
-          genre: "pop",
-          mood: "energy",
-          theme: "study",
-          decade: "all",
-        },
-        {
-          id: 6,
-          name: "Party & Celebration",
-          icon: "fa-glass-cheers",
-          image:
-            "https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-          description:
-            "High-energy tracks perfect for parties and celebrations.",
-          tracks: 1960,
-          likes: 19200,
-          tags: ["Dance", "Celebration", "Festive"],
-          genre: "pop",
-          mood: "party",
-          theme: "celebration",
-          decade: "all",
-        },
-        {
-          id: 7,
-          name: "Workout & Exercise",
-          icon: "fa-running",
-          image:
-            "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-          description:
-            "High-tempo tracks to power through your workout sessions.",
-          tracks: 1720,
-          likes: 14600,
-          tags: ["Cardio", "Strength", "Pump Up"],
-          genre: "electronic",
-          mood: "energy",
-          theme: "workout",
-          decade: "all",
-        },
-        {
-          id: 8,
-          name: "Study & Concentration",
-          icon: "fa-graduation-cap",
-          image:
-            "https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-          description:
-            "Music to help you focus and enhance your study sessions.",
-          tracks: 1540,
-          likes: 12900,
-          tags: ["Focus", "Study", "Concentration"],
-          genre: "classical",
-          mood: "chill",
-          theme: "study",
-          decade: "all",
-        },
-        {
-          id: 9,
-          name: "Sleep & Meditation",
-          icon: "fa-moon",
-          image:
-            "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
-          description:
-            "Soothing sounds to help you relax, meditate, or fall asleep.",
-          tracks: 980,
-          likes: 10200,
-          tags: ["Calm", "Sleep", "Meditation"],
-          genre: "classical",
-          mood: "chill",
-          theme: "sleep",
-          decade: "all",
-        },
-        {
-          id: 10,
-          name: "Cosmic & Space",
-          icon: "fa-rocket",
-          image:
-            "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
-          description: "Music inspired by the cosmos and space exploration.",
-          tracks: 1250,
-          likes: 11800,
-          tags: ["Ambient", "Electronic", "Atmospheric"],
-          genre: "electronic",
-          mood: "chill",
-          theme: "cosmic",
-          decade: "all",
-        },
-        {
-          id: 11,
-          name: "Retro & Vintage",
-          icon: "fa-record-vinyl",
-          image:
-            "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
-          description: "Classic sounds from past decades with a modern twist.",
-          tracks: 2100,
-          likes: 16700,
-          tags: ["80s", "90s", "Retro"],
-          genre: "pop",
-          mood: "party",
-          theme: "retro",
-          decade: "1980s",
-        },
-        {
-          id: 12,
-          name: "Jazz & Blues",
-          icon: "fa-music",
-          image:
-            "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
-          description: "Soulful melodies and improvisational brilliance.",
-          tracks: 1350,
-          likes: 11200,
-          tags: ["Smooth", "Improvisation", "Soul"],
-          genre: "jazz",
-          mood: "chill",
-          theme: "romantic",
-          decade: "1960s",
-        },
-      ];
+      <div class="dropdown-container">
+        <div class="dropdown-header" id="decade-dropdown">
+          <span>Select Decade</span>
+          <i class="fas fa-chevron-down dropdown-icon"></i>
+        </div>
+        <div class="dropdown-menu" id="decade-menu">
+          <div class="dropdown-item" data-value="all">All Decades</div>
+          <div class="dropdown-item" data-value="2020s">2020s</div>
+          <div class="dropdown-item" data-value="2010s">2010s</div>
+          <div class="dropdown-item" data-value="2000s">2000s</div>
+          <div class="dropdown-item" data-value="1990s">1990s</div>
+          <div class="dropdown-item" data-value="1980s">1980s</div>
+          <div class="dropdown-item" data-value="1970s">1970s</div>
+          <div class="dropdown-item" data-value="1960s">1960s</div>
+        </div>
+      </div>
+    </div>
 
-      // Initialize page
-      document.addEventListener("DOMContentLoaded", function () {
-        const dropdownHeaders = document.querySelectorAll(".dropdown-header");
-        const dropdownItems = document.querySelectorAll(".dropdown-item");
-        const categoriesGrid = document.getElementById("categories-grid");
-        const selectedFilters = document.getElementById("selected-filters");
-        const resultsCount = document.getElementById("results-count");
-        const noResults = document.getElementById("no-results");
-        const searchBox = document.querySelector(".search-box");
-        const searchButton = document.querySelector(".search-button");
+    <div class="selected-filters" id="selected-filters"></div>
 
-        let activeFilters = {
-          genre: "all",
-          mood: "all",
-          theme: "all",
-          decade: "all",
-        };
+    <div class="category-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i class="fas fa-compass"></i> Browse Categories
+        </h2>
+        <div>
+          <span id="results-count">Showing 12 categories</span>
+        </div>
+      </div>
 
-        // Toggle dropdown menus
-        dropdownHeaders.forEach((header) => {
-          header.addEventListener("click", function () {
-            // Close all other dropdowns
-            dropdownHeaders.forEach((h) => {
-              if (h !== this) {
-                h.classList.remove("active");
-                const menu = h.nextElementSibling;
-                menu.classList.remove("active");
-              }
-            });
+      <div class="categories-grid" id="categories-grid"></div>
 
-            // Toggle current dropdown
-            this.classList.toggle("active");
-            const menu = this.nextElementSibling;
-            menu.classList.toggle("active");
-          });
-        });
+      <div class="no-results" id="no-results" style="display: none">
+        <i class="fas fa-search"></i>
+        <h3>No categories found</h3>
+        <p>Try adjusting your filters or search terms</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        // Close dropdowns when clicking outside
-        document.addEventListener("click", function (e) {
-          if (!e.target.closest(".dropdown-container")) {
-            dropdownHeaders.forEach((header) => {
-              header.classList.remove("active");
-              const menu = header.nextElementSibling;
-              menu.classList.remove("active");
-            });
-          }
-        });
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Space Rocket Music</h3>
+        <p>Your destination for out-of-this-world music experiences.</p>
+        <div class="social-links">
+          <a href=""><i class="fab fa-facebook-f"></i></a>
+          <a href=""><i class="fab fa-twitter"></i></a>
+          <a href=""><i class="fab fa-instagram"></i></a>
+          <a href=""><i class="fab fa-spotify"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About US</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="FAQ.html">FAQ</a></li>
+          <li><a href="category.html">Categories</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Legal</h3>
+        <ul>
+          <li><a href="TermsOfService.html">Terms of Service</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h3>Support</h3>
+        <ul>
+          <li><a href="Help center.html">Help Center</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Space Rocket Music. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
 
-        // Handle dropdown item selection
-        dropdownItems.forEach((item) => {
-          item.addEventListener("click", function () {
-            const dropdown = this.closest(".dropdown-container");
-            const header = dropdown.querySelector(".dropdown-header");
-            const menu = dropdown.querySelector(".dropdown-menu");
-            const filterType = header.id.replace("-dropdown", "");
-            const value = this.getAttribute("data-value");
+<script>
+  const categoriesData = [
+    {
+      id: 1,
+      name: "Electronic & EDM",
+      icon: "fa-satellite-dish",
+      image:
+        "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      description:
+        "From ambient synthwave to high-energy dance beats. Explore the electronic universe.",
+      tracks: 2450,
+      likes: 18500,
+      tags: ["House", "Techno", "Dubstep"],
+      genre: "electronic",
+      mood: "energy",
+      theme: "cosmic",
+      decade: "2020s",
+    },
+    {
+      id: 2,
+      name: "Rock & Alternative",
+      icon: "fa-guitar",
+      image:
+        "https://images.unsplash.com/photo-1519892300165-cb4742e1e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      description:
+        "From classic rock anthems to modern alternative sounds. Guitar-driven energy.",
+      tracks: 3120,
+      likes: 24200,
+      tags: ["Classic Rock", "Indie", "Punk"],
+      genre: "rock",
+      mood: "energy",
+      theme: "adventure",
+      decade: "all",
+    },
+    {
+      id: 3,
+      name: "Hip Hop & Rap",
+      icon: "fa-microphone",
+      image:
+        "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1305&q=80",
+      description:
+        "From old school beats to modern trap. Urban sounds and lyrical flow.",
+      tracks: 2890,
+      likes: 22700,
+      tags: ["Trap", "Old School", "R&B"],
+      genre: "hiphop",
+      mood: "energy",
+      theme: "urban",
+      decade: "2020s",
+    },
+    {
+      id: 4,
+      name: "Chill & Relax",
+      icon: "fa-couch",
+      image:
+        "https://images.unsplash.com/photo-1571974599782-87624638275f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1331&q=80",
+      description:
+        "Ambient sounds and mellow beats to help you unwind and relax.",
+      tracks: 1840,
+      likes: 15300,
+      tags: ["Ambient", "Lo-fi", "Downtempo"],
+      genre: "electronic",
+      mood: "chill",
+      theme: "sleep",
+      decade: "all",
+    },
+    {
+      id: 5,
+      name: "Energy & Focus",
+      icon: "fa-bolt",
+      image:
+        "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      description:
+        "Upbeat tracks to boost your energy and enhance concentration.",
+      tracks: 2150,
+      likes: 17800,
+      tags: ["Upbeat", "Productive", "Motivational"],
+      genre: "pop",
+      mood: "energy",
+      theme: "study",
+      decade: "all",
+    },
+    {
+      id: 6,
+      name: "Party & Celebration",
+      icon: "fa-glass-cheers",
+      image:
+        "https://images.unsplash.com/photo-1506157786151-b8491531f063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      description: "High-energy tracks perfect for parties and celebrations.",
+      tracks: 1960,
+      likes: 19200,
+      tags: ["Dance", "Celebration", "Festive"],
+      genre: "pop",
+      mood: "party",
+      theme: "celebration",
+      decade: "all",
+    },
+    {
+      id: 7,
+      name: "Workout & Exercise",
+      icon: "fa-running",
+      image:
+        "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      description: "High-tempo tracks to power through your workout sessions.",
+      tracks: 1720,
+      likes: 14600,
+      tags: ["Cardio", "Strength", "Pump Up"],
+      genre: "electronic",
+      mood: "energy",
+      theme: "workout",
+      decade: "all",
+    },
+    {
+      id: 8,
+      name: "Study & Concentration",
+      icon: "fa-graduation-cap",
+      image:
+        "https://images.unsplash.com/photo-1516280440614-37939bbacd81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      description: "Music to help you focus and enhance your study sessions.",
+      tracks: 1540,
+      likes: 12900,
+      tags: ["Focus", "Study", "Concentration"],
+      genre: "classical",
+      mood: "chill",
+      theme: "study",
+      decade: "all",
+    },
+    {
+      id: 9,
+      name: "Sleep & Meditation",
+      icon: "fa-moon",
+      image:
+        "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+      description:
+        "Soothing sounds to help you relax, meditate, or fall asleep.",
+      tracks: 980,
+      likes: 10200,
+      tags: ["Calm", "Sleep", "Meditation"],
+      genre: "classical",
+      mood: "chill",
+      theme: "sleep",
+      decade: "all",
+    },
+    {
+      id: 10,
+      name: "Cosmic & Space",
+      icon: "fa-rocket",
+      image:
+        "https://images.unsplash.com/photo-1611339555312-e607c8352fd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+      description: "Music inspired by the cosmos and space exploration.",
+      tracks: 1250,
+      likes: 11800,
+      tags: ["Ambient", "Electronic", "Atmospheric"],
+      genre: "electronic",
+      mood: "chill",
+      theme: "cosmic",
+      decade: "all",
+    },
+    {
+      id: 11,
+      name: "Retro & Vintage",
+      icon: "fa-record-vinyl",
+      image:
+        "https://images.unsplash.com/photo-1618005198919-d3d4b5a92ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+      description: "Classic sounds from past decades with a modern twist.",
+      tracks: 2100,
+      likes: 16700,
+      tags: ["80s", "90s", "Retro"],
+      genre: "pop",
+      mood: "party",
+      theme: "retro",
+      decade: "1980s",
+    },
+    {
+      id: 12,
+      name: "Jazz & Blues",
+      icon: "fa-music",
+      image:
+        "https://images.unsplash.com/photo-1511379938547-c1f69419868d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80",
+      description: "Soulful melodies and improvisational brilliance.",
+      tracks: 1350,
+      likes: 11200,
+      tags: ["Smooth", "Improvisation", "Soul"],
+      genre: "jazz",
+      mood: "chill",
+      theme: "romantic",
+      decade: "1960s",
+    },
+  ];
 
-            // Update header text
-            if (value === "all") {
-              header.querySelector("span").textContent =
-                header.textContent.includes("Genre")
-                  ? "Select Genre"
-                  : header.textContent.includes("Mood")
-                  ? "Select Mood"
-                  : header.textContent.includes("Theme")
-                  ? "Select Theme"
-                  : "Select Decade";
-            } else {
-              header.querySelector("span").textContent = this.textContent;
-            }
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownHeaders = document.querySelectorAll(".dropdown-header");
+    const dropdownItems = document.querySelectorAll(".dropdown-item");
+    const categoriesGrid = document.getElementById("categories-grid");
+    const selectedFilters = document.getElementById("selected-filters");
+    const resultsCount = document.getElementById("results-count");
+    const noResults = document.getElementById("no-results");
+    const searchBox = document.querySelector(".search-box");
+    const searchButton = document.querySelector(".search-button");
 
-            // Update active filters
-            activeFilters[filterType] = value;
+    let activeFilters = {
+      genre: "all",
+      mood: "all",
+      theme: "all",
+      decade: "all",
+    };
 
-            // Close dropdown
-            header.classList.remove("active");
+    dropdownHeaders.forEach((header) => {
+      header.addEventListener("click", function () {
+        dropdownHeaders.forEach((h) => {
+          if (h !== this) {
+            h.classList.remove("active");
+            const menu = h.nextElementSibling;
             menu.classList.remove("active");
-
-            // Update UI
-            updateSelectedFilters();
-            renderCategories();
-          });
+          }
         });
 
-        // Update selected filters display
-        function updateSelectedFilters() {
-          selectedFilters.innerHTML = "";
+        this.classList.toggle("active");
+        const menu = this.nextElementSibling;
+        menu.classList.toggle("active");
+      });
+    });
 
-          Object.keys(activeFilters).forEach((filterType) => {
-            if (activeFilters[filterType] !== "all") {
-              const filterTag = document.createElement("div");
-              filterTag.className = "filter-tag";
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".dropdown-container")) {
+        dropdownHeaders.forEach((header) => {
+          header.classList.remove("active");
+          const menu = header.nextElementSibling;
+          menu.classList.remove("active");
+        });
+      }
+    });
 
-              let displayText = "";
-              switch (filterType) {
-                case "genre":
-                  displayText = `Genre: ${activeFilters.genre}`;
-                  break;
-                case "mood":
-                  displayText = `Mood: ${activeFilters.mood}`;
-                  break;
-                case "theme":
-                  displayText = `Theme: ${activeFilters.theme}`;
-                  break;
-                case "decade":
-                  displayText = `Decade: ${activeFilters.decade}`;
-                  break;
-              }
+    dropdownItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        const dropdown = this.closest(".dropdown-container");
+        const header = dropdown.querySelector(".dropdown-header");
+        const menu = dropdown.querySelector(".dropdown-menu");
+        const filterType = header.id.replace("-dropdown", "");
+        const value = this.getAttribute("data-value");
 
-              filterTag.innerHTML = `
-                            ${displayText}
-                            <button class="remove-filter" data-type="${filterType}">
-                                <i class="fas fa-times"></i>
-                            </button>
-                        `;
-
-              selectedFilters.appendChild(filterTag);
-            }
-          });
-
-          // Add clear all button if any filters are active
-          if (Object.values(activeFilters).some((val) => val !== "all")) {
-            const clearAll = document.createElement("button");
-            clearAll.className = "clear-all";
-            clearAll.textContent = "Clear All";
-            clearAll.addEventListener("click", clearAllFilters);
-            selectedFilters.appendChild(clearAll);
-          }
-
-          // Add remove filter functionality
-          document.querySelectorAll(".remove-filter").forEach((button) => {
-            button.addEventListener("click", function () {
-              const filterType = this.getAttribute("data-type");
-              activeFilters[filterType] = "all";
-
-              // Reset dropdown header text
-              const dropdownHeader = document.getElementById(
-                `${filterType}-dropdown`
-              );
-              dropdownHeader.querySelector("span").textContent =
-                filterType === "genre"
-                  ? "Select Genre"
-                  : filterType === "mood"
-                  ? "Select Mood"
-                  : filterType === "theme"
-                  ? "Select Theme"
-                  : "Select Decade";
-
-              updateSelectedFilters();
-              renderCategories();
-            });
-          });
-        }
-
-        // Clear all filters
-        function clearAllFilters() {
-          activeFilters = {
-            genre: "all",
-            mood: "all",
-            theme: "all",
-            decade: "all",
-          };
-
-          // Reset all dropdown headers
-          document.querySelectorAll(".dropdown-header").forEach((header) => {
-            header.querySelector("span").textContent = header.id.includes(
-              "genre"
-            )
+        if (value === "all") {
+          header.querySelector("span").textContent =
+            header.textContent.includes("Genre")
               ? "Select Genre"
-              : header.id.includes("mood")
+              : header.textContent.includes("Mood")
               ? "Select Mood"
-              : header.id.includes("theme")
+              : header.textContent.includes("Theme")
               ? "Select Theme"
               : "Select Decade";
-          });
+        } else {
+          header.querySelector("span").textContent = this.textContent;
+        }
+
+        activeFilters[filterType] = value;
+
+        header.classList.remove("active");
+        menu.classList.remove("active");
+
+        updateSelectedFilters();
+        renderCategories();
+      });
+    });
+
+    function updateSelectedFilters() {
+      selectedFilters.innerHTML = "";
+
+      Object.keys(activeFilters).forEach((filterType) => {
+        if (activeFilters[filterType] !== "all") {
+          const filterTag = document.createElement("div");
+          filterTag.className = "filter-tag";
+
+          let displayText = "";
+          switch (filterType) {
+            case "genre":
+              displayText = `Genre: ${activeFilters.genre}`;
+              break;
+            case "mood":
+              displayText = `Mood: ${activeFilters.mood}`;
+              break;
+            case "theme":
+              displayText = `Theme: ${activeFilters.theme}`;
+              break;
+            case "decade":
+              displayText = `Decade: ${activeFilters.decade}`;
+              break;
+          }
+
+          filterTag.innerHTML = `
+                        ${displayText}
+                        <button class="remove-filter" data-type="${filterType}">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    `;
+
+          selectedFilters.appendChild(filterTag);
+        }
+      });
+
+      if (Object.values(activeFilters).some((val) => val !== "all")) {
+        const clearAll = document.createElement("button");
+        clearAll.className = "clear-all";
+        clearAll.textContent = "Clear All";
+        clearAll.addEventListener("click", clearAllFilters);
+        selectedFilters.appendChild(clearAll);
+      }
+
+      document.querySelectorAll(".remove-filter").forEach((button) => {
+        button.addEventListener("click", function () {
+          const filterType = this.getAttribute("data-type");
+          activeFilters[filterType] = "all";
+
+          const dropdownHeader = document.getElementById(
+            `${filterType}-dropdown`
+          );
+          dropdownHeader.querySelector("span").textContent =
+            filterType === "genre"
+              ? "Select Genre"
+              : filterType === "mood"
+              ? "Select Mood"
+              : filterType === "theme"
+              ? "Select Theme"
+              : "Select Decade";
 
           updateSelectedFilters();
           renderCategories();
-        }
-
-        // Render categories based on filters
-        function renderCategories() {
-          const searchTerm = searchBox.value.toLowerCase().trim();
-
-          const filteredCategories = categoriesData.filter((category) => {
-            // Check genre filter
-            if (
-              activeFilters.genre !== "all" &&
-              category.genre !== activeFilters.genre
-            ) {
-              return false;
-            }
-
-            // Check mood filter
-            if (
-              activeFilters.mood !== "all" &&
-              category.mood !== activeFilters.mood
-            ) {
-              return false;
-            }
-
-            // Check theme filter
-            if (
-              activeFilters.theme !== "all" &&
-              category.theme !== activeFilters.theme
-            ) {
-              return false;
-            }
-
-            // Check decade filter
-            if (
-              activeFilters.decade !== "all" &&
-              category.decade !== activeFilters.decade &&
-              category.decade !== "all"
-            ) {
-              return false;
-            }
-
-            // Check search term
-            if (
-              searchTerm &&
-              !category.name.toLowerCase().includes(searchTerm) &&
-              !category.description.toLowerCase().includes(searchTerm) &&
-              !category.tags.some((tag) =>
-                tag.toLowerCase().includes(searchTerm)
-              )
-            ) {
-              return false;
-            }
-
-            return true;
-          });
-
-          // Update results count
-          resultsCount.textContent = `Showing ${filteredCategories.length} categories`;
-
-          // Show/hide no results message
-          if (filteredCategories.length === 0) {
-            noResults.style.display = "block";
-            categoriesGrid.style.display = "none";
-          } else {
-            noResults.style.display = "none";
-            categoriesGrid.style.display = "grid";
-          }
-
-          // Render categories
-          categoriesGrid.innerHTML = "";
-
-          filteredCategories.forEach((category) => {
-            const categoryCard = document.createElement("div");
-            categoryCard.className = "category-card";
-
-            categoryCard.innerHTML = `
-                        <img src="${category.image}" alt="${
-              category.name
-            }" class="category-image">
-                        <div class="category-content">
-                            <h3 class="category-name"><i class="fas ${
-                              category.icon
-                            } category-icon"></i> ${category.name}</h3>
-                            <div class="category-stats">
-                                <div class="stat"><i class="fas fa-music"></i> ${category.tracks.toLocaleString()} tracks</div>
-                                <div class="stat"><i class="fas fa-heart"></i> ${category.likes.toLocaleString()} likes</div>
-                            </div>
-                            <p class="category-desc">${category.description}</p>
-                            <div class="category-tags">
-                                ${category.tags
-                                  .map(
-                                    (tag) => `<span class="tag">${tag}</span>`
-                                  )
-                                  .join("")}
-                            </div>
-                            <button class="play-button"><i class="fas fa-play"></i> Play Category</button>
-                        </div>
-                    `;
-
-            categoriesGrid.appendChild(categoryCard);
-          });
-
-          // Add play button functionality
-          document.querySelectorAll(".play-button").forEach((button) => {
-            button.addEventListener("click", function (e) {
-              e.stopPropagation();
-              const card = this.closest(".category-card");
-              const categoryName =
-                card.querySelector(".category-name").textContent;
-
-              alert(`Now playing: ${categoryName} radio`);
-
-              // Visual feedback
-              this.innerHTML = '<i class="fas fa-pause"></i> Playing';
-              this.style.background =
-                "linear-gradient(to right, #4CAF50, #45a049)";
-            });
-          });
-
-          // Add card click functionality
-          document.querySelectorAll(".category-card").forEach((card) => {
-            card.addEventListener("click", function () {
-              const categoryName =
-                this.querySelector(".category-name").textContent;
-              console.log(`Navigating to ${categoryName} category`);
-            });
-          });
-        }
-
-        // Search functionality
-        function performSearch() {
-          renderCategories();
-        }
-
-        searchButton.addEventListener("click", performSearch);
-        searchBox.addEventListener("keypress", function (e) {
-          if (e.key === "Enter") {
-            performSearch();
-          }
         });
-
-        // Initial render
-        renderCategories();
       });
-    </script>
-  </body>
-</html>
+    }
+
+    function clearAllFilters() {
+      activeFilters = {
+        genre: "all",
+        mood: "all",
+        theme: "all",
+        decade: "all",
+      };
+
+      document.querySelectorAll(".dropdown-header").forEach((header) => {
+        header.querySelector("span").textContent = header.id.includes("genre")
+          ? "Select Genre"
+          : header.id.includes("mood")
+          ? "Select Mood"
+          : header.id.includes("theme")
+          ? "Select Theme"
+          : "Select Decade";
+      });
+
+      updateSelectedFilters();
+      renderCategories();
+    }
+
+    function renderCategories() {
+      const searchTerm = searchBox.value.toLowerCase().trim();
+
+      const filteredCategories = categoriesData.filter((category) => {
+        if (
+          activeFilters.genre !== "all" &&
+          category.genre !== activeFilters.genre
+        ) {
+          return false;
+        }
+
+        if (
+          activeFilters.mood !== "all" &&
+          category.mood !== activeFilters.mood
+        ) {
+          return false;
+        }
+
+        if (
+          activeFilters.theme !== "all" &&
+          category.theme !== activeFilters.theme
+        ) {
+          return false;
+        }
+
+        if (
+          activeFilters.decade !== "all" &&
+          category.decade !== activeFilters.decade &&
+          category.decade !== "all"
+        ) {
+          return false;
+        }
+
+        if (
+          searchTerm &&
+          !category.name.toLowerCase().includes(searchTerm) &&
+          !category.description.toLowerCase().includes(searchTerm) &&
+          !category.tags.some((tag) => tag.toLowerCase().includes(searchTerm))
+        ) {
+          return false;
+        }
+
+        return true;
+      });
+
+      resultsCount.textContent = `Showing ${filteredCategories.length} categories`;
+
+      if (filteredCategories.length === 0) {
+        noResults.style.display = "block";
+        categoriesGrid.style.display = "none";
+      } else {
+        noResults.style.display = "none";
+        categoriesGrid.style.display = "grid";
+      }
+
+      categoriesGrid.innerHTML = "";
+
+      filteredCategories.forEach((category) => {
+        const categoryCard = document.createElement("div");
+        categoryCard.className = "category-card";
+
+        categoryCard.innerHTML = `
+                    <img src="${category.image}" alt="${
+          category.name
+        }" class="category-image">
+                    <div class="category-content">
+                        <h3 class="category-name"><i class="fas ${
+                          category.icon
+                        } category-icon"></i> ${category.name}</h3>
+                        <div class="category-stats">
+                            <div class="stat"><i class="fas fa-music"></i> ${category.tracks.toLocaleString()} tracks</div>
+                            <div class="stat"><i class="fas fa-heart"></i> ${category.likes.toLocaleString()} likes</div>
+                        </div>
+                        <p class="category-desc">${category.description}</p>
+                        <div class="category-tags">
+                            ${category.tags
+                              .map((tag) => `<span class="tag">${tag}</span>`)
+                              .join("")}
+                        </div>
+                        <button class="play-button"><i class="fas fa-play"></i> Play Category</button>
+                    </div>
+                `;
+
+        categoriesGrid.appendChild(categoryCard);
+      });
+
+      document.querySelectorAll(".play-button").forEach((button) => {
+        button.addEventListener("click", function (e) {
+          e.stopPropagation();
+          const card = this.closest(".category-card");
+          const categoryName = card.querySelector(".category-name").textContent;
+
+          alert(`Now playing: ${categoryName} radio`);
+
+          this.innerHTML = '<i class="fas fa-pause"></i> Playing';
+          this.style.background = "linear-gradient(to right, #4CAF50, #45a049)";
+        });
+      });
+
+      document.querySelectorAll(".category-card").forEach((card) => {
+        card.addEventListener("click", function () {
+          const categoryName = this.querySelector(".category-name").textContent;
+          console.log(`Navigating to ${categoryName} category`);
+        });
+      });
+    }
+
+    function performSearch() {
+      renderCategories();
+    }
+
+    searchButton.addEventListener("click", performSearch);
+    searchBox.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        performSearch();
+      }
+    });
+
+    renderCategories();
+  });
+</script>
